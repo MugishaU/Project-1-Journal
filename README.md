@@ -1,5 +1,11 @@
 # Online Journal
 
+## Description
+
+## Instructions
+
+## Known Bugs
+
 ## Contributors
 
-Jamie Sear, Cindy Feng, Mugisha Uwiragiye & Alex Peirson
+Jamie Sear (@JamieSear), Cindy Feng (@cindywfeng), Mugisha Uwiragiye (@MugishaU) & Alex Peirson (@AKP-13)
