@@ -1,0 +1,31 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Jamie Sear (@JamieSear), Cindy Feng (@cindywfeng), Mugisha Uwiragiye (@MugishaU) & Alex Peirson (@AKP-13)",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MugishaU/Project-1-Journal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MugishaU/Project-1-Journal/issues"
+  },
+  "homepage": "https://github.com/MugishaU/Project-1-Journal#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "rewire": "^5.0.0"
+  }
+}
