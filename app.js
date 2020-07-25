@@ -25,4 +25,4 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}`)
 );
 
-app.get("/", (req, res) => res.send("app.js server"));
+app.get("/", (req, res) => res.send(posts));
