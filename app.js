@@ -32,5 +32,24 @@ app.get("/posts", (req, res) => res.send(posts));
 
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
+  let newPost = {
+    id: idCount,
+    title: "",
+    description: "",
+    content: "",
+    gif: "",
+    reaction: {
+      thumbUp: 0,
+      clap: 0,
+      love: 0,
+    },
+    comments: [],
+  };
+
+  newPost.title += newPostContent.title;
+  newPost.description += newPostContent.description;
+  newPost.content += newPostContent.content;
+  posts.push(newPost);
+  idCount++;
   res.send(console.log(newPostContent));
 });
