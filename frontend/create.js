@@ -13,4 +13,16 @@ function submitPost(title, description, content) {
   console.log(`Title: ${title}`);
   console.log(`Description: ${description}`);
   console.log(`Content: ${content}`);
+  const newPostElements = {
+    title: title,
+    description: description,
+    content: content,
+  };
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify(newPostElements),
+  };
+
+  fetch("http://localhost:3000/posts/newpost", options);
 }

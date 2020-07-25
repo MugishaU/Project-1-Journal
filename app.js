@@ -1,8 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const port = 3000;
+const bodyParser = require("body-parser");
 const app = express();
 
+let idCount = 1;
 let posts = [
   {
     id: 0,
@@ -21,8 +23,14 @@ let posts = [
 ];
 
 app.use(cors());
+app.use(bodyParser.text());
 app.listen(port, () =>
-  console.log(`Express server running at http://localhost:${port}`)
+  console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
-app.get("/", (req, res) => res.send(posts));
+app.get("/posts", (req, res) => res.send(posts));
+
+app.post("/posts/newpost", (req, res) => {
+  const newPostContent = JSON.parse(req.body);
+  res.send(console.log(newPostContent));
+});
