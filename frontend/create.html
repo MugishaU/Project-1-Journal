@@ -8,17 +8,20 @@
   </head>
   <body>
     <h1>New Post</h1>
-    <form>
+    <form id="form">
       <label for="title">Title</label>
-      <input type="text" name="title" id="title" />
+      <input type="text" name="title" id="title" required />
       <br />
       <br />
       <label for="description">Description</label>
-      <textarea id="description" name="description"></textarea>
+      <textarea id="description" name="description" required></textarea>
       <br />
       <br />
       <label for="content">Content</label>
-      <textarea id="content" name="content"></textarea>
+      <textarea id="content" name="content" required></textarea>
+      <br />
+      <br />
+      <input type="submit" value="Create Post" />
     </form>
   </body>
 </html>
