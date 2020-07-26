@@ -10,9 +10,16 @@
     <h1>New Post</h1>
     <form id="form">
       <label for="title">Title</label>
-      <input type="text" name="title" id="title" maxlength="50" required />
-      <br />
-      <br />
+      <input
+        type="text"
+        name="title"
+        id="title"
+        maxlength="50"
+        value=""
+        required
+      />
+      <p id="titleCount">50/50</p>
+
       <label for="description">Description</label>
       <textarea
         id="description"
@@ -20,8 +27,8 @@
         maxlength="150"
         required
       ></textarea>
-      <br />
-      <br />
+      <p id="descriptionCount">0/150</p>
+
       <label for="content">Content</label>
       <textarea
         id="content"
@@ -29,8 +36,8 @@
         maxlength="10000"
         required
       ></textarea>
-      <br />
-      <br />
+      <p id="contentCount">0/10,000</p>
+
       <input type="submit" value="Create Post" />
     </form>
   </body>
