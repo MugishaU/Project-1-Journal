@@ -12,7 +12,7 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
-fs.readFile("./database.json", "utf8", (err, jsonString) => {
+fs.readFile("./posts.json", "utf8", (err, jsonString) => {
   if (err) {
     console.log("Error reading file from disk:", err);
     return;
@@ -47,7 +47,7 @@ app.post("/posts/newpost", (req, res) => {
   newPost.content += newPostContent.content;
   posts.push(newPost);
   const jsonString = JSON.stringify(posts);
-  fs.writeFile("./database.json", jsonString, (err) => {
+  fs.writeFile("./posts.json", jsonString, (err) => {
     if (err) {
       console.log("Error writing file", err);
     } else {
