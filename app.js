@@ -18,18 +18,18 @@ fs.readFile("./database.json", "utf8", (err, jsonString) => {
     return;
   }
   try {
-    database = JSON.parse(jsonString);
+    posts = JSON.parse(jsonString);
   } catch (err) {
-    database = { error: `Error parsing JSON string:${err}` };
+    posts = { error: `Error parsing JSON string:${err}` };
   }
 });
 
-app.get("/posts", (req, res) => res.send(database));
+app.get("/posts", (req, res) => res.send(posts));
 
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
-  let newPost = {
-    id: idCount,
+  const newPost = {
+    id: posts.length,
     title: "",
     description: "",
     content: "",
@@ -46,6 +46,22 @@ app.post("/posts/newpost", (req, res) => {
   newPost.description += newPostContent.description;
   newPost.content += newPostContent.content;
   posts.push(newPost);
-  idCount++;
+  const jsonString = JSON.stringify(posts);
+  fs.writeFile("./database.json", jsonString, (err) => {
+    if (err) {
+      console.log("Error writing file", err);
+    } else {
+      console.log(`Successfully saved "${newPost.title}" to file`);
+    }
+  });
+
   res.send(console.log(newPostContent));
 });
+
+// {{"id": 0,
+// "title": "Test Post",
+// "description": "A brief post to test with",
+// "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
+// "gif": "",
+// "reaction": { "thumbUp": 5, "clap": 0, "love": 0 },
+// "comments": ["comment1", "comment2", "comment3"]}}
