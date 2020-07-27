@@ -1,5 +1,5 @@
 const test = document.getElementById('test')
-const allPosts =document.getElementById('allPosts')
+const allPosts = document.getElementById('allPosts')
 
 
 fetch('http://localhost:3000/posts')
@@ -11,20 +11,22 @@ fetch('http://localhost:3000/posts')
 function displayPosts(posts){
     
     for(post of posts){
+        //connecting to giphy API 
         const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
-        fetch(url)
-        // .then(r => r.json())
-        .then(data => {
-            // console.log(data.url);
-            // console.log(data.embed_url);
-            console.log(data);
-
+            fetch(url)
+            .then(r => r.json())
+            .then(data => {
             const giphy = document.createElement("img");
-            giphy.src = data.data.url;
+            //grabbing gif image from prommise
+            giphy.src = data.data[0].images.original.url;
             allPosts.append(giphy);
-        });
+        })
+        
+            .catch(function() {
+                console.log("No GIF entry")
+            });
 
-        console.log(`Title of #${post.id} is: ${post.title} `)
+        // console.log(`Title of #${post.id} is: ${post.title} `)
         const title = document.createElement('p');
         title.textContent = `Title of #${post.id} is: ${post.title} `
         allPosts.append(title)
