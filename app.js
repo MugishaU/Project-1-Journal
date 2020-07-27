@@ -38,6 +38,7 @@ app.post("/posts/newpost", (req, res) => {
   newPost.title += newPostContent.title;
   newPost.description += newPostContent.description;
   newPost.content += newPostContent.content;
+  newPost.gif += newPostContent.gif;
   posts.push(newPost);
   readJSON();
   writeJSON(posts);
