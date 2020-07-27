@@ -19,6 +19,7 @@ app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
+
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
   const newPost = {
@@ -68,6 +69,9 @@ function writeJSON(body) {
       : console.log("Successfully written to posts.json");
   });
 }
+
+
+
 
 // [
 //   {
