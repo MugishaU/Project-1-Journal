@@ -24,23 +24,49 @@ function displayPosts(posts) {
     allPosts.append(gif);
 
     //reactions//
-    let num = post.reaction.thumbUp;
-    const reactionButton = document.createElement("h3");
-    reactionButton.textContent = "thumb-up";
-    reactionButton.setAttribute("id", `thumbUp${post.id}`);
-    allPosts.append(reactionButton);
+    //likes//
+    let likes = post.reaction.like;
+    const likeButton = document.createElement("button");
+    likeButton.textContent = `Likes`;
+    // likeButton.setAttribute("id", `thumbUp${post.id}`);
+    allPosts.append(likeButton);
 
-    const reactionCounter = document.createElement("p");
-    reactionCounter.innerHTML = `Thumbs-up count: ${post.reaction.thumbUp}`;
-    allPosts.append(reactionCounter);
-    add1(reactionButton, num, reactionCounter);
+    const likeCounter = document.createElement("p");
+    likeCounter.innerHTML = `${likes}`;
+    allPosts.append(likeCounter);
+    reactionCount(likeButton, likes, likeCounter);
+
+    //love//
+    let love = post.reaction.love;
+    const loveButton = document.createElement("button");
+    loveButton.textContent = `Love`;
+    loveButton.setAttribute("id", `thumbUp${post.id}`);
+    allPosts.append(loveButton);
+
+    const loveCounter = document.createElement("p");
+    loveCounter.innerHTML = `${love}`;
+    allPosts.append(loveCounter);
+    reactionCount(loveButton, love, loveCounter);
+
+    //clap//
+    let clap = post.reaction.clap;
+    const clapButton = document.createElement("button");
+    clapButton.textContent = `Clap`;
+    clapButton.setAttribute("id", `thumbUp${post.id}`);
+    allPosts.append(clapButton);
+
+    const clapCounter = document.createElement("p");
+    clapCounter.innerHTML = `${clap}`;
+    allPosts.append(clapCounter);
+    reactionCount(clapButton, clap, clapCounter);
   }
 }
 
-function add1(button, count, display) {
+function reactionCount(button, count, display) {
   button.addEventListener("click", () => {
     count += 1;
-    display.innerHTML = `Thumbs-up count: ${count}`;
+    display.innerHTML = `${count}`;
+    button.disabled = true;
     console.log(count);
   });
 }
