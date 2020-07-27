@@ -13,10 +13,12 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
+
 app.get("/posts", (req, res) => {
   readJSON();
   res.send(posts);
 });
+
 
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
@@ -37,6 +39,7 @@ app.post("/posts/newpost", (req, res) => {
   newPost.title += newPostContent.title;
   newPost.description += newPostContent.description;
   newPost.content += newPostContent.content;
+  newPost.gif += newPostContent.gif;
   posts.push(newPost);
   readJSON();
   writeJSON(posts);
@@ -67,6 +70,9 @@ function writeJSON(body) {
   });
 }
 
+
+
+
 // [
 //   {
 //     id: 0,
@@ -79,3 +85,6 @@ function writeJSON(body) {
 //     comments: ["comment1", "comment2", "comment3"],
 //   },
 // ];
+
+
+
