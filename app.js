@@ -39,10 +39,16 @@ app.post("/posts/newpost", (req, res) => {
   newPost.content += newPostContent.content;
   newPost.gif += newPostContent.gif;
   posts.push(newPost);
-  readJSON();
   writeJSON(posts);
 
   console.log(newPostContent);
+});
+
+app.get("/posts/findpost", (req, res) => {
+  let id = req.query.id;
+  let type = req.query.type;
+  posts[id].reaction[type] += 1;
+  writeJSON(posts);
 });
 
 function readJSON() {

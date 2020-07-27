@@ -26,6 +26,7 @@ function displayPosts(posts) {
     //reactions//
     //likes//
     let likes = post.reaction.like;
+    let postID = post.id;
     const likeButton = document.createElement("button");
     likeButton.textContent = `Likes`;
     // likeButton.setAttribute("id", `thumbUp${post.id}`);
@@ -34,7 +35,7 @@ function displayPosts(posts) {
     const likeCounter = document.createElement("p");
     likeCounter.innerHTML = `${likes}`;
     allPosts.append(likeCounter);
-    reactionCount(likeButton, likes, likeCounter);
+    reactionCount(likeButton, likes, likeCounter, postID, "like");
 
     //love//
     let love = post.reaction.love;
@@ -46,7 +47,7 @@ function displayPosts(posts) {
     const loveCounter = document.createElement("p");
     loveCounter.innerHTML = `${love}`;
     allPosts.append(loveCounter);
-    reactionCount(loveButton, love, loveCounter);
+    reactionCount(loveButton, love, loveCounter, postID, "love");
 
     //clap//
     let clap = post.reaction.clap;
@@ -58,15 +59,16 @@ function displayPosts(posts) {
     const clapCounter = document.createElement("p");
     clapCounter.innerHTML = `${clap}`;
     allPosts.append(clapCounter);
-    reactionCount(clapButton, clap, clapCounter);
+    reactionCount(clapButton, clap, clapCounter, postID, "clap");
   }
 }
 
-function reactionCount(button, count, display) {
-  button.addEventListener("click", () => {
+function reactionCount(button, count, display, id, type) {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
     count += 1;
+    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
     display.innerHTML = `${count}`;
     button.disabled = true;
-    console.log(count);
   });
 }
