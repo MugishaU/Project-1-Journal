@@ -64,8 +64,7 @@ function displayPosts(posts) {
 }
 
 function reactionCount(button, count, display, id, type) {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
+  button.addEventListener("click", () => {
     count += 1;
     fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
     display.innerHTML = `${count}`;
