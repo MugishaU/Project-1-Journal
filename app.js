@@ -13,18 +13,6 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
-// fs.readFile("./posts.json", "utf8", (err, jsonString) => {
-//   if (err) {
-//     console.log("Error reading file from disk:", err);
-//     return;
-//   }
-//   try {
-//     posts = JSON.parse(jsonString);
-//   } catch (err) {
-//     posts = { error: `Error parsing JSON string:${err}` };
-//   }
-// });
-
 app.get("/posts", (req, res) => {
   readJSON();
   res.send(posts);
@@ -79,10 +67,15 @@ function writeJSON(body) {
   });
 }
 
-// {{"id": 0,
-// "title": "Test Post",
-// "description": "A brief post to test with",
-// "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
-// "gif": "",
-// "reaction": { "thumbUp": 5, "clap": 0, "love": 0 },
-// "comments": ["comment1", "comment2", "comment3"]}}
+// [
+//   {
+//     id: 0,
+//     title: "Test Post",
+//     description: "A brief post to test with",
+//     content:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
+//     gif: "",
+//     reaction: { thumbUp: 5, clap: 0, love: 0 },
+//     comments: ["comment1", "comment2", "comment3"],
+//   },
+// ];
