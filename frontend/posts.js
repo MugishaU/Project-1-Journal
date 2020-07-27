@@ -22,23 +22,25 @@ function displayPosts(posts) {
     const gif = document.createElement("img");
     gif.textContent = post;
     allPosts.append(gif);
-    //reactions//
-    const reaction = document.createElement("button");
-    reaction.textContent = "thumb-up";
-    reaction.setAttribute("href", "#");
-    reaction.setAttribute("id", `thumbUp${post.id}`);
-    allPosts.append(reaction);
 
-    const reactionCount = document.createElement("p");
-    reactionCount.textContent = `Thumbs-up count: ${post.reaction.thumbUp}`;
-    allPosts.append(reactionCount);
+    //reactions//
+    let num = post.reaction.thumbUp;
+    const reactionButton = document.createElement("h3");
+    reactionButton.textContent = "thumb-up";
+    reactionButton.setAttribute("id", `thumbUp${post.id}`);
+    allPosts.append(reactionButton);
+
+    const reactionCounter = document.createElement("p");
+    reactionCounter.innerHTML = `Thumbs-up count: ${post.reaction.thumbUp}`;
+    allPosts.append(reactionCounter);
+    add1(reactionButton, num, reactionCounter);
   }
 }
 
-function add1(button1, place) {
-  document.getElementById(button1).addEventListener("click", () => {
-    console.log("click");
+function add1(button, count, display) {
+  button.addEventListener("click", () => {
+    count += 1;
+    display.innerHTML = `Thumbs-up count: ${count}`;
+    console.log(count);
   });
 }
-
-add1("thumbUp1");
