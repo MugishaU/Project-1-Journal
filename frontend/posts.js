@@ -25,6 +25,7 @@ function displayPosts(posts){
 
         const title = document.createElement('p');
         title.textContent = `Title of #${post.id} is: ${post.title} `
-        allPosts.append(title)
+        allPosts.append(title);
+        
     }
 }
