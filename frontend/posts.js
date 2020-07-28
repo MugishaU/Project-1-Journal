@@ -67,12 +67,6 @@ function displayPosts(posts) {
 
     //comments Area//
     
-
-
-
-
-
-
   }
 }
 
@@ -85,5 +79,16 @@ function reactionCount(button, count, id, type) {
   });
 }
 
+// To the top button //
+const buttonToTop = document.getElementById('buttonToTop');
+buttonToTop.addEventListener("click", () => {
+    // window.scrollTo(0, 0);
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behaviour: "smooth"
+    });
+});
+// End of "scroll to the top" button//
   
 
