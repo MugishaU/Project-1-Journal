@@ -23,7 +23,7 @@ function displayPosts(posts){
         article.append(description)
 
         //gif//
-        
+
         //reaction bar//
         const reactionBar = document.createElement('div')
         reactionBar.setAttribute("id",`reactionBar${post.id}`)
@@ -36,7 +36,7 @@ function displayPosts(posts){
         //like count//
         const likeCount = document.createElement('h5')
         likeCount.setAttribute("id", `likeCount${post.id}`)
-        like.textContent = post.reaction.like
+        like.textContent = ` ${post.reaction.like}`
         reactionBar.append(likeCount)
         reactionCount(like, post.reaction.like, post.id, 'like')
         //clap//
@@ -47,13 +47,13 @@ function displayPosts(posts){
         //clap count//
         const clapCount = document.createElement('h5')
         clapCount.setAttribute("id", `clapCount${post.id}`)
-        clap.textContent = post.reaction.clap
+        clap.textContent = ` ${post.reaction.clap}`
         reactionBar.append(clapCount)
         reactionCount(clap, post.reaction.clap, post.id, 'clap')
         //love//
         const love = document.createElement('i')
         love.setAttribute("id", `love${post.id}`)
-        love.textContent = post.reaction.love
+        love.textContent = ` ${post.reaction.love}`
         love.setAttribute("class","fas fa-heart")
         reactionBar.append(love)
         reactionCount(love, post.reaction.love, post.id, 'love')
