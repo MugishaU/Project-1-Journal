@@ -1,4 +1,3 @@
-const test = document.getElementById('test')
 const allPosts =document.getElementById('allPosts')
 
 
