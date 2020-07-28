@@ -14,12 +14,12 @@ function displayPosts(posts){
         //title//
         const title = document.createElement(`h1`)
         title.setAttribute("id", `title${post.id}`)
-        title.textContent = post.title
+        title.textContent = `Title: ${post.title}`
          article.append(title)
         //description//
         const description = document.createElement(`p`)
         description.setAttribute("id", `description${post.id}`)
-        description.textContent = post.description
+        description.textContent = `Description: ${post.description}`
         article.append(description)
 
         //gif//
@@ -31,7 +31,7 @@ function displayPosts(posts){
         //like//
         const like = document.createElement('i')
         like.setAttribute("id", `like${post.id}`)
-        like.setAttribute("class", 'fas fa-thumbs-up')
+        like.setAttribute("class", 'fas fa-thumbs-up') 
         reactionBar.append(like)
         //like count//
         const likeCount = document.createElement('h5')
@@ -93,4 +93,4 @@ buttonToTop.addEventListener("click", () => {
         behaviour: "smooth"
     });
 });
-// End of "scroll to the top" button//
+// End of stop button//

@@ -78,8 +78,23 @@ nav ul li a:hover{
 /* ------ End of Header ----- */
 /* ------ Body ----- */
 /* ------ Section ----- */
-section {
 
+/* index.html */
+section {
+    display: grid;
+
+}
+
+section h1 {
+    display: grid;
+    justify-content: center;
+}
+
+section p {
+    display: block;
+    padding: 5px 20%;
+    text-align: center;
+    text-justify: auto;
 }
 
 
