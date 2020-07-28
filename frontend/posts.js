@@ -113,6 +113,8 @@ function newComment(form, id, name) {
     const commentContent = { comment: event.target[name].value, id: id };
     const options = { method: "POST", body: JSON.stringify(commentContent) };
     fetch("http://localhost:3000/posts/newcomment", options);
+    alert("Comment saved, viewable on refresh");
+    form.reset();
   });
 }
 

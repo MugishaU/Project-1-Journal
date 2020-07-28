@@ -40,8 +40,7 @@ app.post("/posts/newpost", (req, res) => {
   newPost.gif += newPostContent.gif;
   posts.push(newPost);
   writeJSON(posts);
-
-  console.log(newPostContent);
+  readJSON();
 });
 
 app.get("/posts/findpost", (req, res) => {
