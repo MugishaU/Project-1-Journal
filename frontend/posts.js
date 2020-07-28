@@ -1,4 +1,3 @@
-const test = document.getElementById("test");
 const allPosts = document.getElementById("allPosts");
 
 fetch("http://localhost:3000/posts")
@@ -61,7 +60,6 @@ function displayPosts(posts) {
     allPosts.append(clapCounter);
     reactionCount(clapButton, clap, clapCounter, postID, "clap");
   }
-
 }
 
 function reactionCount(button, count, display, id, type) {

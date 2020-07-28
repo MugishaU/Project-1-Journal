@@ -82,7 +82,7 @@ function writeJSON(body) {
 //     content:
 //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
 //     gif: "",
-//     reaction: { thumbUp: 5, clap: 0, love: 0 },
+//     reaction: { like: 5, clap: 0, love: 0 },
 //     comments: ["comment1", "comment2", "comment3"],
 //   },
 // ];
