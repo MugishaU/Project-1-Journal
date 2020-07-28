@@ -6,26 +6,25 @@ fetch("http://localhost:3000/posts")
 
 function displayPosts(posts) {
   for (post of posts) {
+    //article//
     const article = document.createElement(`article`)
-    article.setAttribute("id", `article${post.id}`)
+    article.setAttribute("id", `post${post.id}`)
     postSection.append(article)
-
+    //title//
     const title = document.createElement(`h1`)
     title.setAttribute("id", `title${post.id}`)
     title.textContent = post.title
     article.append(title)
-
+    //main body of post//
     const main = document.createElement('p')
     main.setAttribute("id", `main${post.id}`)
     main.textContent = post.content
     article.append(main)
-
     //gif//
     //reaction bar//
     const reactionBar = document.createElement('div')
     reactionBar.setAttribute("id",`reactionBar${post.id}`)
-    article.append(reactionBar)
-    
+    article.append(reactionBar)    
 
     //like//
     const like = document.createElement('button')
@@ -63,6 +62,8 @@ function displayPosts(posts) {
     const loveCount = document.createElement('h5')
     loveCount.setAttribute("id", `loveCount${post.id}`)
     reactionBar.append(loveCount)
+
+    //comments Area//
 
     //comments Area//
     
