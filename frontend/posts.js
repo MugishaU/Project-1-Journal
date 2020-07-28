@@ -72,11 +72,36 @@ function displayPosts(posts) {
     publishedComments.setAttribute("id", `publishedComments${post.id}`);
     commentsArea.append(publishedComments);
 
+    //print each comment
     for (const comment of post.comments) {
       const commentP = document.createElement("p");
       commentP.textContent = comment;
       publishedComments.append(commentP);
     }
+
+    //create form to add comments
+    const commentForm = document.createElement("form");
+    commentForm.setAttribute("id", `commentForm${post.id}`);
+    commentsArea.append(commentForm);
+
+    //Text area input label
+    const commentLabel = document.createElement("label");
+    commentLabel.setAttribute("id", `commentLabel${post.id}`);
+    commentLabel.setAttribute("for", `commentInput${post.id}`);
+    commentForm.append(commentLabel);
+
+    //Text area input
+    const commentInput = document.createElement("textarea");
+    commentInput.setAttribute("id", `commentInput${post.id}`);
+    commentInput.setAttribute("name", `commentInput${post.id}`);
+    commentInput.setAttribute("required", "required");
+    commentForm.append(commentInput);
+
+    const submitComment = document.createElement("input");
+    submitComment.setAttribute("id", `submitComment${post.id}`);
+    submitComment.setAttribute("type", "submit");
+    submitComment.setAttribute("value", "Submit Comment");
+    commentForm.append(submitComment);
   }
 }
 
