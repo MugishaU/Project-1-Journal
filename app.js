@@ -51,6 +51,14 @@ app.get("/posts/findpost", (req, res) => {
   writeJSON(posts);
 });
 
+app.post("/posts/newcomment", (req, res) => {
+  const newCommentContent = JSON.parse(req.body);
+  const id = newCommentContent.id;
+  const comment = newCommentContent.comment;
+  posts[id].comments.push(comment);
+  writeJSON(posts);
+});
+
 function readJSON() {
   fs.readFile("./posts.json", "utf8", (err, jsonString) => {
     if (err) {

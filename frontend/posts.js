@@ -110,8 +110,9 @@ function displayPosts(posts) {
 function newComment(form, id, name) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const comment = event.target[name].value;
-    console.log(comment + id);
+    const commentContent = { comment: event.target[name].value, id: id };
+    const options = { method: "POST", body: JSON.stringify(commentContent) };
+    fetch("http://localhost:3000/posts/newcomment", options);
   });
 }
 
