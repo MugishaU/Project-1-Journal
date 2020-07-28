@@ -34,7 +34,7 @@ function displayPosts(posts) {
     
     const likeCount = document.createElement('h5')
     likeCount.setAttribute("id", `likeCount${post.id}`)
-    like.textContent = post.reaction.like
+    like.textContent = ` ${post.reaction.like}`
     reactionBar.append(likeCount)
     reactionCount(like, post.reaction.like, post.id, 'like')
 
@@ -46,7 +46,7 @@ function displayPosts(posts) {
     
     const clapCount = document.createElement('h5')
     clapCount.setAttribute("id", `clapCount${post.id}`)
-    clap.textContent = post.reaction.clap
+    clap.textContent = ` ${post.reaction.clap}`
     reactionBar.append(clapCount)
     reactionCount(clap, post.reaction.clap, post.id, 'clap')
 
@@ -54,7 +54,7 @@ function displayPosts(posts) {
     //love//
     const love = document.createElement('button')
     love.setAttribute("id", `love${post.id}`)
-    love.textContent = post.reaction.love
+    love.textContent = ` ${post.reaction.love}`
     love.setAttribute("class","fas fa-heart")
     reactionBar.append(love)
     reactionCount(love, post.reaction.love, post.id, 'love')
@@ -80,7 +80,7 @@ function reactionCount(button, count, id, type) {
   button.addEventListener("click", () => {
     count += 1;
     fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-    button.innerHTML = `${count}`;
+    button.innerHTML = ` ${count}`;
     button.disabled = true;
   });
 }
