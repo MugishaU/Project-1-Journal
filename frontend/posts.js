@@ -28,34 +28,43 @@ function displayPosts(posts) {
     
 
     //like//
-    const like = document.createElement('i')
+    const like = document.createElement('button')
     like.setAttribute("id", `like${post.id}`)
     like.setAttribute("class", 'fas fa-thumbs-up')
     reactionBar.append(like)
     
     const likeCount = document.createElement('h5')
     likeCount.setAttribute("id", `likeCount${post.id}`)
+    like.textContent = post.reaction.like
     reactionBar.append(likeCount)
+    reactionCount(like, post.reaction.like, post.id, 'like')
 
     //clap//
-    const clap = document.createElement('i')
+    const clap = document.createElement('button')
     clap.setAttribute("id", `clap${post.id}`)
     clap.setAttribute("class","fas fa-sign-language")
     reactionBar.append(clap)
     
     const clapCount = document.createElement('h5')
     clapCount.setAttribute("id", `clapCount${post.id}`)
+    clap.textContent = post.reaction.clap
     reactionBar.append(clapCount)
+    reactionCount(clap, post.reaction.clap, post.id, 'clap')
+
 
     //love//
-    const love = document.createElement('i')
+    const love = document.createElement('button')
     love.setAttribute("id", `love${post.id}`)
+    love.textContent = post.reaction.love
     love.setAttribute("class","fas fa-heart")
     reactionBar.append(love)
+    reactionCount(love, post.reaction.love, post.id, 'love')
     
     const loveCount = document.createElement('h5')
     loveCount.setAttribute("id", `loveCount${post.id}`)
     reactionBar.append(loveCount)
+
+    //comments Area//
     
 
 
@@ -66,83 +75,14 @@ function displayPosts(posts) {
   }
 }
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-function displayPosts1 (posts) {
-  for (post of posts) {
-    //Title & id//
-    const title = document.createElement("p");
-    const id = document.createElement("p");
-    title.textContent = `Title: ${post.title} `;
-    id.textContent = `Id: #${post.id} `;
-    allPosts.append(title);
-    allPosts.append(id);
-    //Content//
-    const content = document.createElement("p");
-    content.textContent = post.content;
-    allPosts.append(content);
-    //gif//
-    const gif = document.createElement("img");
-    gif.textContent = post;
-    allPosts.append(gif);
-
-    //reactions//
-    //likes//
-    let likes = post.reaction.like;
-    let postID = post.id;
-    const likeButton = document.createElement("button");
-    likeButton.textContent = `Likes`;
-    // likeButton.setAttribute("id", `thumbUp${post.id}`);
-    allPosts.append(likeButton);
-
-    const likeCounter = document.createElement("p");
-    likeCounter.innerHTML = `${likes}`;
-    allPosts.append(likeCounter);
-    reactionCount(likeButton, likes, likeCounter, postID, "like");
-
-    //love//
-    let love = post.reaction.love;
-    const loveButton = document.createElement("button");
-    loveButton.textContent = `Love`;
-    loveButton.setAttribute("id", `thumbUp${post.id}`);
-    allPosts.append(loveButton);
-
-    const loveCounter = document.createElement("p");
-    loveCounter.innerHTML = `${love}`;
-    allPosts.append(loveCounter);
-    reactionCount(loveButton, love, loveCounter, postID, "love");
-
-    //clap//
-    let clap = post.reaction.clap;
-    const clapButton = document.createElement("button");
-    clapButton.textContent = `Clap`;
-    clapButton.setAttribute("id", `thumbUp${post.id}`);
-    allPosts.append(clapButton);
-
-    const clapCounter = document.createElement("p");
-    clapCounter.innerHTML = `${clap}`;
-    allPosts.append(clapCounter);
-    reactionCount(clapButton, clap, clapCounter, postID, "clap");
-  }
-}
-
-function reactionCount(button, count, display, id, type) {
+function reactionCount(button, count, id, type) {
   button.addEventListener("click", () => {
     count += 1;
     fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-    display.innerHTML = `${count}`;
+    button.innerHTML = `${count}`;
     button.disabled = true;
   });
 }
+
+  
+
