@@ -100,8 +100,12 @@ section {
 
 }
 
+#buttonToTop:hover {
+    background-color: rgb(194, 191, 191);
+}
+
 #buttonToTop:active {
-    background: rgb(184, 182, 182);
+    background: rgb(150, 149, 149);
 }
 
 

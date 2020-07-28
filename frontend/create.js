@@ -24,6 +24,12 @@ function charCount(trackElement, postElementid) {
     document.getElementById(
       postElementid
     ).textContent = `${count}/${event.target.maxLength}`;
+
+    if (`${count}` === `${event.target.maxLength}`){
+      document.getElementById(postElementid).style.color ="red"
+    } else {
+      document.getElementById(postElementid).style.color ="black"
+    }
   });
 }
 

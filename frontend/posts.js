@@ -6,26 +6,25 @@ fetch("http://localhost:3000/posts")
 
 function displayPosts(posts) {
   for (post of posts) {
+    //article//
     const article = document.createElement(`article`)
-    article.setAttribute("id", `article${post.id}`)
+    article.setAttribute("id", `post${post.id}`)
     postSection.append(article)
-
+    //title//
     const title = document.createElement(`h1`)
     title.setAttribute("id", `title${post.id}`)
     title.textContent = post.title
     article.append(title)
-
+    //main body of post//
     const main = document.createElement('p')
     main.setAttribute("id", `main${post.id}`)
     main.textContent = post.content
     article.append(main)
-
     //gif//
     //reaction bar//
     const reactionBar = document.createElement('div')
     reactionBar.setAttribute("id",`reactionBar${post.id}`)
-    article.append(reactionBar)
-    
+    article.append(reactionBar)    
 
     //like//
     const like = document.createElement('button')
@@ -35,7 +34,7 @@ function displayPosts(posts) {
     
     const likeCount = document.createElement('h5')
     likeCount.setAttribute("id", `likeCount${post.id}`)
-    like.textContent = post.reaction.like
+    like.textContent = ` ${post.reaction.like}`
     reactionBar.append(likeCount)
     reactionCount(like, post.reaction.like, post.id, 'like')
 
@@ -47,7 +46,7 @@ function displayPosts(posts) {
     
     const clapCount = document.createElement('h5')
     clapCount.setAttribute("id", `clapCount${post.id}`)
-    clap.textContent = post.reaction.clap
+    clap.textContent = ` ${post.reaction.clap}`
     reactionBar.append(clapCount)
     reactionCount(clap, post.reaction.clap, post.id, 'clap')
 
@@ -55,7 +54,7 @@ function displayPosts(posts) {
     //love//
     const love = document.createElement('button')
     love.setAttribute("id", `love${post.id}`)
-    love.textContent = post.reaction.love
+    love.textContent = ` ${post.reaction.love}`
     love.setAttribute("class","fas fa-heart")
     reactionBar.append(love)
     reactionCount(love, post.reaction.love, post.id, 'love')
@@ -65,13 +64,9 @@ function displayPosts(posts) {
     reactionBar.append(loveCount)
 
     //comments Area//
+
+    //comments Area//
     
-
-
-
-
-
-
   }
 }
 
@@ -79,10 +74,21 @@ function reactionCount(button, count, id, type) {
   button.addEventListener("click", () => {
     count += 1;
     fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-    button.innerHTML = `${count}`;
+    button.innerHTML = ` ${count}`;
     button.disabled = true;
   });
 }
 
+// To the top button //
+const buttonToTop = document.getElementById('buttonToTop');
+buttonToTop.addEventListener("click", () => {
+    // window.scrollTo(0, 0);
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behaviour: "smooth"
+    });
+});
+// End of "scroll to the top" button//
   
 
