@@ -9,10 +9,56 @@ function displayPosts(posts) {
     const article = document.createElement(`article`)
     article.setAttribute("id", `article${post.id}`)
     postSection.append(article)
+
     const title = document.createElement(`h1`)
     title.setAttribute("id", `title${post.id}`)
     title.textContent = post.title
-    postSection.append(title)
+    article.append(title)
+
+    const main = document.createElement('p')
+    main.setAttribute("id", `main${post.id}`)
+    main.textContent = post.content
+    article.append(main)
+
+    //gif//
+    //reaction bar//
+    const reactionBar = document.createElement('div')
+    reactionBar.setAttribute("id",`reactionBar${post.id}`)
+    article.append(reactionBar)
+    
+
+    //like//
+    const like = document.createElement('i')
+    like.setAttribute("id", `like${post.id}`)
+    like.setAttribute("class", 'fas fa-thumbs-up')
+    reactionBar.append(like)
+    
+    const likeCount = document.createElement('h5')
+    likeCount.setAttribute("id", `likeCount${post.id}`)
+    reactionBar.append(likeCount)
+
+    //clap//
+    const clap = document.createElement('i')
+    clap.setAttribute("id", `clap${post.id}`)
+    clap.setAttribute("class","fas fa-sign-language")
+    reactionBar.append(clap)
+    
+    const clapCount = document.createElement('h5')
+    clapCount.setAttribute("id", `clapCount${post.id}`)
+    reactionBar.append(clapCount)
+
+    //love//
+    const love = document.createElement('i')
+    love.setAttribute("id", `love${post.id}`)
+    love.setAttribute("class","fas fa-heart")
+    reactionBar.append(love)
+    
+    const loveCount = document.createElement('h5')
+    loveCount.setAttribute("id", `loveCount${post.id}`)
+    reactionBar.append(loveCount)
+    
+
+
 
 
 
