@@ -102,7 +102,17 @@ function displayPosts(posts) {
     submitComment.setAttribute("type", "submit");
     submitComment.setAttribute("value", "Submit Comment");
     commentForm.append(submitComment);
+
+    newComment(commentForm, post.id, `commentInput${post.id}`);
   }
+}
+
+function newComment(form, id, name) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const comment = event.target[name].value;
+    console.log(comment + id);
+  });
 }
 
 function reactionCount(button, count, id, type) {

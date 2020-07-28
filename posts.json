@@ -5,7 +5,7 @@
     "description": "A brief post to test with",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
     "gif": "",
-    "reaction": { "like": 22, "clap": 14, "love": 9 },
+    "reaction": { "like": 22, "clap": 15, "love": 9 },
     "comments": ["comment1", "comment2", "comment3"]
   },
   {
