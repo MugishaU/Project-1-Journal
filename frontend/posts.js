@@ -68,7 +68,6 @@ function displayPosts(posts){
         commentArea.append(publishedComments)
 
         //creating p tag for comments and append to publishedComments
-
         for (let i = 0; i < post.comments.length; i++) {
             const newComment = document.createElement('p');
             newComment.textContent = `${post.comments[i]}`
@@ -78,35 +77,35 @@ function displayPosts(posts){
         
         // creating form that appends to commentsArea
         const commentForm = document.createElement('form');
-        commentForm.setAttribute("id", "commentForm")
+        commentForm.setAttribute("id", `commentForm${post.id}`)
         commentArea.append(commentForm)
 
         //creating label for new comments
         const commentLabel = document.createElement('label');
-        commentLabel.setAttribute("id", "commentInput")
+        commentLabel.setAttribute("id", "commentLabel")
         commentLabel.setAttribute("for", "commentInput")
+        commentForm.append(commentLabel)
 
-//     // messageLabel.innerHTML = "Add comment: ";
-    // commentForm.appendChild(messageLabel);
+        //creating text area for new comments
+        const commentInput = document.createElement('textarea');
+        commentInput.setAttribute("id", "commentInput")
+        commentInput.setAttribute("name", "commentInput")
+        commentForm.append(commentInput)
 
-    let textAreaElement = document.createElement('textarea');
-    textAreaElement.setAttribute("name", "dmessage");
-    commentForm.appendChild(textAreaElement);
-
-    let messagebreak = document.createElement('br');
-    commentForm.appendChild(messagebreak);
-
-    let submitElement = document.createElement('input'); // Append Submit Button
-    submitElement.setAttribute("type", "submit");
-    submitElement.setAttribute("name", "dsubmit");
-    submitElement.setAttribute("value", "Comment");
-    commentForm.appendChild(submitElement);
+        //creating submit button for comment
+        const submitContent = document.createElement('input');
+        submitContent.setAttribute("id", "submitComment");
+        submitContent.setAttribute("type", "submit");
+        submitContent.setAttribute("value", "Comment");
+        commentForm.append(submitContent)
 
 }
 
 document.getElementById(`commentForm${post.id}`).addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(`${post.id} ${event.target.value}`)
+    const newComment = `${event.target.commentInput.value}`
+    
+    //post to posts.json comment section
   });
 } 
  
