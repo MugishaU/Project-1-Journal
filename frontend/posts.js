@@ -1,10 +1,40 @@
-const allPosts = document.getElementById("allPosts");
+const postSection = document.getElementById("postSection");
 
 fetch("http://localhost:3000/posts")
   .then((r) => r.json())
   .then((data) => displayPosts(data));
 
 function displayPosts(posts) {
+  for (post of posts) {
+    const article = document.createElement(`article`)
+    article.setAttribute("id", `article${post.id}`)
+    postSection.append(article)
+    const title = document.createElement(`h1`)
+    title.setAttribute("id", `title${post.id}`)
+    title.textContent = post.title
+    postSection.append(title)
+
+
+
+
+  }
+}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+function displayPosts1 (posts) {
   for (post of posts) {
     //Title & id//
     const title = document.createElement("p");
