@@ -78,7 +78,7 @@ function reactionCount(button, count, id, type) {
     button.addEventListener("click", () => {
       count += 1;
       fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-      button.innerHTML = `${count}`;
+      button.innerHTML = ` ${count}`;
       button.disabled = true;
     });
   }
