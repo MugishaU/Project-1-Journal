@@ -20,6 +20,19 @@ app.get("/posts", (req, res) => {
 });
 
 
+app.post("/posts/addcomment", (req, res) => {
+  const id = req.query.id
+  const newCommentContent = JSON.parse(req.body);
+  // const newComment = {
+  //   comments: "",
+  // }
+  // newComment.comments += newCommentContent.comments;
+  posts[id].comments.push(newCommentContent.comment)
+  readJSON();
+  
+  writeJSON(posts);
+})
+
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
   const newPost = {

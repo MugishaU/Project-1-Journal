@@ -98,14 +98,34 @@ function displayPosts(posts){
         submitContent.setAttribute("type", "submit");
         submitContent.setAttribute("value", "Comment");
         commentForm.append(submitContent)
-
-}
-
-document.getElementById(`commentForm${post.id}`).addEventListener("submit", (event) => {
-    event.preventDefault();
-    const newComment = `${event.target.commentInput.value}`
+        
+        
+    }
+    document.getElementById(`commentForm${post.id}`).addEventListener("submit", (event) => {
+        event.preventDefault();
+        const newComment = event.target.commentInput.value
+        submitComment(newComment, post.id)
     
-    //post to posts.json comment section
-  });
+      });
 } 
+
+
+
+
+function submitComment(comment, id) {
+    const newCommentElements = {
+      comment: comment,
+    };
+  
+    const options = {
+      method: "POST",
+      body: JSON.stringify(newCommentElements),
+    };
+  
+    fetch(`http://localhost:3000/posts/addcomment?id=${id}`, options);
+    console.log(id);
+  }
+  
+
  
+
