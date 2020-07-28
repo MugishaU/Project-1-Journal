@@ -61,6 +61,7 @@ function displayPosts(posts) {
     allPosts.append(clapCounter);
     reactionCount(clapButton, clap, clapCounter, postID, "clap");
   }
+
 }
 
 function reactionCount(button, count, display, id, type) {
