@@ -1,15 +1,15 @@
 const form = document.getElementById("form");
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-const content = document.getElementById("content");
-const gif = document.getElementById("gif");
+const title = document.getElementById("titleForm");
+const description = document.getElementById("descriptionForm");
+const content = document.getElementById("contentForm");
+const gif = document.getElementById("gifForm");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const title = event.target.title.value;
-  const description = event.target.description.value;
-  const content = event.target.content.value;
-  const gif = event.target.gif.value;
+  const title = event.target.titleForm.value;
+  const description = event.target.descriptionForm.value;
+  const content = event.target.contentForm.value;
+  const gif = event.target.gifForm.value;
 
   submitPost(title, description, content, gif);
   alert("Post created");
