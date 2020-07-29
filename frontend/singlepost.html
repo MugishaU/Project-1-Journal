@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="singlepost.js"></script>
-    <title>Post</title>
+    <title id="headTitle"></title>
   </head>
   <body>
     <header>
@@ -34,21 +34,14 @@
       <article id="post">
         <h1 id="title"></h1>
         <p id="main"></p>
-        <img id="gif" />
+        <div id="gifDiv">
+          <img id="giphy" />
+        </div>
 
         <div id="reactionBar">
-          <button>
-            <i id="like"></i>
-            <h5 id="likeCount" class="fas fa-thumbs-up">2</h5>
-          </button>
-          <button>
-            <i id="clap"></i>
-            <h5 id="clapCount" class="fas fa-sign-language">3</h5>
-          </button>
-          <button>
-            <i id="love" class="fas fa-heart"></i>
-            <h5 id="loveCount">3</h5>
-          </button>
+          <button id="like" class="fas fa-thumbs-up"></button>
+          <button id="clap" class="fas fa-sign-language"></button>
+          <button id="love" class="fas fa-heart"></button>
         </div>
 
         <div id="commentsArea">
