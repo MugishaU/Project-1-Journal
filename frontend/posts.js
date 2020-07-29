@@ -47,24 +47,16 @@ function displayPosts(posts) {
     const like = document.createElement("button");
     like.setAttribute("id", `like${post.id}`);
     like.setAttribute("class", "fas fa-thumbs-up");
-    reactionBar.append(like);
-
-    const likeCount = document.createElement("h5");
-    likeCount.setAttribute("id", `likeCount${post.id}`);
     like.textContent = ` ${post.reaction.like}`;
-    reactionBar.append(likeCount);
+    reactionBar.append(like);
     reactionCount(like, post.reaction.like, post.id, "like");
 
     //clap//
     const clap = document.createElement("button");
     clap.setAttribute("id", `clap${post.id}`);
     clap.setAttribute("class", "fas fa-sign-language");
-    reactionBar.append(clap);
-
-    const clapCount = document.createElement("h5");
-    clapCount.setAttribute("id", `clapCount${post.id}`);
     clap.textContent = ` ${post.reaction.clap}`;
-    reactionBar.append(clapCount);
+    reactionBar.append(clap);
     reactionCount(clap, post.reaction.clap, post.id, "clap");
 
     //love//
@@ -74,10 +66,6 @@ function displayPosts(posts) {
     love.setAttribute("class", "fas fa-heart");
     reactionBar.append(love);
     reactionCount(love, post.reaction.love, post.id, "love");
-
-    const loveCount = document.createElement("h5");
-    loveCount.setAttribute("id", `loveCount${post.id}`);
-    reactionBar.append(loveCount);
 
     //comments Area//
     const commentsArea = document.createElement("div");
