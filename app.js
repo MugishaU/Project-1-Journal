@@ -61,7 +61,6 @@ app.post("/posts/newcomment", (req, res) => {
 
 app.get("/posts/postid", (req, res) => {
   singlePostId = req.query.id;
-  console.log(singlePostId);
 });
 
 app.get("/posts/singlepost", (req, res) => {
@@ -90,16 +89,3 @@ function writeJSON(body) {
       : console.log("Successfully written to posts.json");
   });
 }
-
-// [
-//   {
-//     id: 0,
-//     title: "Test Post",
-//     description: "A brief post to test with",
-//     content:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
-//     gif: "",
-//     reaction: { like: 5, clap: 0, love: 0 },
-//     comments: ["comment1", "comment2", "comment3"],
-//   },
-// ];
