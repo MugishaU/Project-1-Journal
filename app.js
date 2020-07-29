@@ -5,6 +5,7 @@ const fs = require("fs");
 const app = express();
 const port = 3000;
 let posts;
+let singlePostId;
 
 readJSON();
 app.use(cors());
@@ -56,6 +57,15 @@ app.post("/posts/newcomment", (req, res) => {
   const comment = newCommentContent.comment;
   posts[id].comments.push(comment);
   writeJSON(posts);
+});
+
+app.get("/posts/postid", (req, res) => {
+  singlePostId = req.query.id;
+  console.log(singlePostId);
+});
+
+app.get("/posts/singlepost", (req, res) => {
+  res.send(JSON.stringify(posts[singlePostId]));
 });
 
 function readJSON() {

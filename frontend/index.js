@@ -55,7 +55,7 @@ function displayPosts(posts) {
     likeCount.setAttribute("id", `likeCount${post.id}`);
     like.textContent = ` ${post.reaction.like}`;
     reactionBar.append(likeCount);
-    // reactionCount(like, post.reaction.like, post.id, "like");
+
     //clap//
     const clap = document.createElement("i");
     clap.setAttribute("id", `clap${post.id}`);
@@ -66,14 +66,14 @@ function displayPosts(posts) {
     clapCount.setAttribute("id", `clapCount${post.id}`);
     clap.textContent = ` ${post.reaction.clap}`;
     reactionBar.append(clapCount);
-    // reactionCount(clap, post.reaction.clap, post.id, "clap");
+
     //love//
     const love = document.createElement("i");
     love.setAttribute("id", `love${post.id}`);
     love.textContent = ` ${post.reaction.love}`;
     love.setAttribute("class", "fas fa-heart");
     reactionBar.append(love);
-    // reactionCount(love, post.reaction.love, post.id, "love");
+
     //love count//
     const loveCount = document.createElement("h5");
     loveCount.setAttribute("id", `loveCount${post.id}`);
@@ -81,22 +81,20 @@ function displayPosts(posts) {
     //post Link//
     const postLink = document.createElement("a");
     postLink.setAttribute("id", `postLink${post.id}`);
-    postLink.setAttribute("href", `posts.html#post${post.id}`);
+    postLink.setAttribute("href", `singlepost.html`);
     reactionBar.append(postLink);
     //button in "post Link" to Go to Post//
     const buttonPostLink = document.createElement("button");
     buttonPostLink.setAttribute("id", "buttonPostLink");
     buttonPostLink.textContent = "Go to Post";
     postLink.append(buttonPostLink);
+    postId(buttonPostLink, post.id);
   }
 }
 
-function reactionCount(button, count, id, type) {
+function postId(button, id) {
   button.addEventListener("click", () => {
-    count += 1;
-    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-    button.innerHTML = ` ${count}`;
-    button.disabled = true;
+    fetch(`http://localhost:3000/posts/postid?id=${id}`);
   });
 }
 
