@@ -59,11 +59,9 @@ function reactionCount(button, count, id, type) {
 
 function newComment(form, id, name) {
   form.addEventListener("submit", (event) => {
-    event.preventDefault();
     const commentContent = { comment: event.target[name].value, id: id };
     const options = { method: "POST", body: JSON.stringify(commentContent) };
     fetch("http://localhost:3000/posts/newcomment", options);
-    alert("Comment saved, viewable on refresh");
     form.reset();
   });
 }
