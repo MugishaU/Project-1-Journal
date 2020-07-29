@@ -40,14 +40,21 @@ app.post("/posts/newpost", (req, res) => {
   newPost.gif += newPostContent.gif;
   posts.push(newPost);
   writeJSON(posts);
-
-  console.log(newPostContent);
+  readJSON();
 });
 
 app.get("/posts/findpost", (req, res) => {
   let id = req.query.id;
   let type = req.query.type;
   posts[id].reaction[type] += 1;
+  writeJSON(posts);
+});
+
+app.post("/posts/newcomment", (req, res) => {
+  const newCommentContent = JSON.parse(req.body);
+  const id = newCommentContent.id;
+  const comment = newCommentContent.comment;
+  posts[id].comments.push(comment);
   writeJSON(posts);
 });
 
