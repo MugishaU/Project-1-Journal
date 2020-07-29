@@ -13,25 +13,10 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
-
 app.get("/posts", (req, res) => {
   readJSON();
   res.send(posts);
 });
-
-
-app.post("/posts/addcomment", (req, res) => {
-  const id = req.query.id
-  const newCommentContent = JSON.parse(req.body);
-  // const newComment = {
-  //   comments: "",
-  // }
-  // newComment.comments += newCommentContent.comments;
-  posts[id].comments.push(newCommentContent.comment)
-  readJSON();
-  
-  writeJSON(posts);
-})
 
 app.post("/posts/newpost", (req, res) => {
   const newPostContent = JSON.parse(req.body);
@@ -42,7 +27,7 @@ app.post("/posts/newpost", (req, res) => {
     content: "",
     gif: "",
     reaction: {
-      thumbUp: 0,
+      like: 0,
       clap: 0,
       love: 0,
     },
@@ -54,10 +39,23 @@ app.post("/posts/newpost", (req, res) => {
   newPost.content += newPostContent.content;
   newPost.gif += newPostContent.gif;
   posts.push(newPost);
-  readJSON();
   writeJSON(posts);
+  readJSON();
+});
 
-  console.log(newPostContent);
+app.get("/posts/findpost", (req, res) => {
+  let id = req.query.id;
+  let type = req.query.type;
+  posts[id].reaction[type] += 1;
+  writeJSON(posts);
+});
+
+app.post("/posts/newcomment", (req, res) => {
+  const newCommentContent = JSON.parse(req.body);
+  const id = newCommentContent.id;
+  const comment = newCommentContent.comment;
+  posts[id].comments.push(comment);
+  writeJSON(posts);
 });
 
 function readJSON() {
@@ -83,9 +81,6 @@ function writeJSON(body) {
   });
 }
 
-
-
-
 // [
 //   {
 //     id: 0,
@@ -94,10 +89,7 @@ function writeJSON(body) {
 //     content:
 //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
 //     gif: "",
-//     reaction: { thumbUp: 5, clap: 0, love: 0 },
+//     reaction: { like: 5, clap: 0, love: 0 },
 //     comments: ["comment1", "comment2", "comment3"],
 //   },
 // ];
-
-
-
