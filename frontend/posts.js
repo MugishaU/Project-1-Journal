@@ -8,7 +8,7 @@ searchBar.addEventListener("submit", (event) => {
     const postSection = document.createElement("section");
     postSection.setAttribute("id", "postSection");
     main.append(postSection);
-    const searchTerm = event.target.search.value; // handle '&'
+    let searchTerm = event.target.search.value; // handle '&'
     fetch(`http://localhost:3000/posts/search/allPosts?q=${searchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
