@@ -69,7 +69,8 @@ app.get("/posts/singlepost", (req, res) => {
 
 app.get("/posts/search/allPosts", (req, res) => {
     readJSON();
-    const searchTerm = req.query.q;
+    let searchTerm = req.query.q;
+    searchTerm = searchTerm.toLowerCase();
     let returnPosts = postFilter(searchTerm, 'allPost');
     console.log(searchTerm);
     console.log(returnPosts);
@@ -78,23 +79,25 @@ app.get("/posts/search/allPosts", (req, res) => {
 
 app.get("/posts/search/home", (req, res) => {
     readJSON();
-    const searchTerm = req.query.q;
-    let returnPosts = postFilter(searchTerm, 'home');
+    let searchTerm = req.query.q;
+    searchTerm = searchTerm.toLowerCase();
     console.log(searchTerm);
-    console.log(returnPosts);
+    let returnPosts = postFilter(searchTerm, 'home');
+    // console.log(searchTerm);
+    // console.log(returnPosts);
     res.send(JSON.stringify(returnPosts));
 });
 
 function postFilter(searchTerm, origin){
     if(origin === 'home'){
         return posts.filter((post) =>
-            post.title.includes(searchTerm) ||
-            post.description.includes(searchTerm)
+            post.title.toLowerCase().includes(searchTerm) ||
+            post.description.toLowerCase().includes(searchTerm)
         );
     } else {
         return posts.filter((post) =>
-            post.title.includes(searchTerm) ||
-            post.content.includes(searchTerm)
+            post.title.toLowerCase().includes(searchTerm) ||
+            post.content.toLowerCase().includes(searchTerm)
         );
     }
 };
