@@ -8,8 +8,17 @@ searchBar.addEventListener("submit", (event) => {
     const postSection = document.createElement("section");
     postSection.setAttribute("id", "postSection");
     main.append(postSection);
-    const searchTerm = event.target.search.value; // handle '&'
-    fetch(`http://localhost:3000/posts/search/home?q=${searchTerm}`)
+    let searchTerm = event.target.search.value; // handle '&'
+    let newSearchTerm = "";
+    for(let i = 0; i < searchTerm.length; i++){
+        let letter = searchTerm[i];
+        if (letter === "&"){
+            newSearchTerm += "%26";
+        } else {
+            newSearchTerm += letter;
+        }
+    };
+    fetch(`http://localhost:3000/posts/search/home?q=${newSearchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
 })

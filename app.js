@@ -11,37 +11,37 @@ readJSON();
 app.use(cors());
 app.use(bodyParser.text());
 app.listen(port, () =>
-  console.log(`Express server running at http://localhost:${port}/posts`)
+    console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
 app.get("/posts", (req, res) => {
-  readJSON();
-  res.send(posts);
+    readJSON();
+    res.send(posts);
 });
 
 app.post("/posts/newpost", (req, res) => {
-  const newPostContent = JSON.parse(req.body);
-  const newPost = {
+    const newPostContent = JSON.parse(req.body);
+    const newPost = {
     id: posts.length,
     title: "",
     description: "",
     content: "",
     gif: "",
     reaction: {
-      like: 0,
-      clap: 0,
-      love: 0,
+        like: 0,
+        clap: 0,
+        love: 0,
     },
     comments: [],
-  };
+    };
 
-  newPost.title += newPostContent.title;
-  newPost.description += newPostContent.description;
-  newPost.content += newPostContent.content;
-  newPost.gif += newPostContent.gif;
-  posts.push(newPost);
-  writeJSON(posts);
-  readJSON();
+    newPost.title += newPostContent.title;
+    newPost.description += newPostContent.description;
+    newPost.content += newPostContent.content;
+    newPost.gif += newPostContent.gif;
+    posts.push(newPost);
+    writeJSON(posts);
+    readJSON();
 });
 
 app.get("/posts/findpost", (req, res) => {
@@ -72,8 +72,6 @@ app.get("/posts/search/allPosts", (req, res) => {
     let searchTerm = req.query.q;
     searchTerm = searchTerm.toLowerCase();
     let returnPosts = postFilter(searchTerm, 'allPost');
-    console.log(searchTerm);
-    console.log(returnPosts);
     res.send(JSON.stringify(returnPosts));
 });
 
@@ -81,10 +79,7 @@ app.get("/posts/search/home", (req, res) => {
     readJSON();
     let searchTerm = req.query.q;
     searchTerm = searchTerm.toLowerCase();
-    console.log(searchTerm);
     let returnPosts = postFilter(searchTerm, 'home');
-    // console.log(searchTerm);
-    // console.log(returnPosts);
     res.send(JSON.stringify(returnPosts));
 });
 
