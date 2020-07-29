@@ -10,10 +10,10 @@ html {
 }
 
 
-body {
+/* body {
     background-image: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
     background-repeat: none;
-}
+} */
 
 
 
@@ -28,8 +28,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: 
-    #ABDCFF;
+    background-color: lightgreen;
     z-index: 1;
 
 

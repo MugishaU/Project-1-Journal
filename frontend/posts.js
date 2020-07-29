@@ -1,4 +1,10 @@
 const postSection = document.getElementById("postSection");
+const searchBar = document.getElementById("searchBar");
+
+searchBar.addEventListener("submit", (event) => {
+    event.preventDefault();
+    postSection.remove();
+})
 
 fetch("http://localhost:3000/posts")
   .then((r) => r.json())
