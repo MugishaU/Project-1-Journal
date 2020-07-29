@@ -11,7 +11,7 @@ function displayPosts(posts) {
     article.setAttribute("id", `post${post.id}`);
     postSection.append(article);
     //title//
-    const title = document.createElement(`h1`);
+    const title = document.createElement(`h2`);
     title.setAttribute("id", `title${post.id}`);
     title.textContent = post.title;
     article.append(title);

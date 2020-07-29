@@ -11,7 +11,7 @@ function displayPosts(posts) {
     article.setAttribute("id", `post${post.id}`);
     postSection.append(article);
     //title//
-    const title = document.createElement(`h1`);
+    const title = document.createElement("h2");
     title.setAttribute("id", `title${post.id}`);
     title.textContent = post.title;
     article.append(title);
@@ -76,6 +76,11 @@ function displayPosts(posts) {
     const publishedComments = document.createElement("div");
     publishedComments.setAttribute("id", `publishedComments${post.id}`);
     commentsArea.append(publishedComments);
+
+    const commentHeader = document.createElement("h3");
+    commentHeader.setAttribute("id", `commentHeader${post.id}`);
+    commentHeader.textContent = "Comments";
+    publishedComments.append(commentHeader);
 
     //print each comment
     for (const comment of post.comments) {

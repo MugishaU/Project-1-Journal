@@ -1,77 +1,73 @@
 /* ------ Fonts ----- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&family=Noto+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&family=Noto+Sans&display=swap");
 
 /* font-family: 'Montserrat', sans-serif;
 font-family: 'Montserrat Alternates', sans-serif;
 font-family: 'Noto Sans', sans-serif; */
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-
 
 /* ------ Header ----- */
 header {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 /* ------ Navbar ----- */
 nav {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #ddd;
-
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ddd;
 }
 nav ul {
-    list-style-type: none;
-    display: inline-block;
-
+  list-style-type: none;
+  display: inline-block;
 }
 
 nav ul li {
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    padding-left: 40px;
-    padding-right: 40px;
-
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
-nav ul li a{
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    color: black;
+nav ul li a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: black;
 }
 
-nav ul li a:hover{
-    font-weight: 900;
-    text-decoration: underline;
-    color: black;
+nav ul li a:hover {
+  font-weight: 900;
+  text-decoration: underline;
+  color: black;
 }
 
 @media only screen and (max-width: 800px) {
-    nav ul li a{
-        font-size: smaller;
-    }
+  nav ul li a {
+    font-size: smaller;
+  }
 
-    nav ul li {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+  nav ul li {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    nav ul li a{
-        font-size: x-small;
-    }
+  nav ul li a {
+    font-size: x-small;
+  }
 
-    nav ul li {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+  nav ul li {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 /* ------ End of Navbar ----- */
@@ -79,38 +75,31 @@ nav ul li a:hover{
 /* ------ Body ----- */
 /* ------ Section ----- */
 section {
-
 }
-
-
 /* ------ To the Top button ----- */
 #buttonToTop {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #ddd;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    color: black;
-    outline: none;
-    border: none;
-    cursor: pointer;
-
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: black;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 #buttonToTop:hover {
-    background-color: rgb(194, 191, 191);
+  background-color: rgb(194, 191, 191);
 }
 
 #buttonToTop:active {
-    background: rgb(150, 149, 149);
+  background: rgb(150, 149, 149);
 }
-
-
 
 /* ------ End the Top button ----- */
 /* ------ End of Section ----- */
 /* ------ End of Body ----- */
-
