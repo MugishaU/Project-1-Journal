@@ -67,6 +67,23 @@ app.get("/posts/singlepost", (req, res) => {
   res.send(JSON.stringify(posts[singlePostId]));
 });
 
+app.get("/posts/search", (req, res) => {
+    readJSON();
+    const searchTerm = req.query.q;
+    let returnPosts = postFilter(searchTerm);
+    console.log(searchTerm);
+    console.log(returnPosts);
+    res.send(JSON.stringify(returnPosts));
+});
+
+function postFilter(searchTerm){
+    return posts.filter((post) =>
+        post.title.includes(searchTerm) ||
+        post.description.includes(searchTerm) ||
+        post.content.includes(searchTerm)
+    );
+};
+
 function readJSON() {
   fs.readFile("./posts.json", "utf8", (err, jsonString) => {
     if (err) {

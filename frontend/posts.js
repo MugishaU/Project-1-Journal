@@ -1,9 +1,17 @@
 const postSection = document.getElementById("postSection");
 const searchBar = document.getElementById("searchBar");
+const main = document.getElementById("main");
 
 searchBar.addEventListener("submit", (event) => {
     event.preventDefault();
-    postSection.remove();
+    document.getElementById("postSection").remove();
+    const postSection = document.createElement("section");
+    postSection.setAttribute("id", "postSection");
+    main.append(postSection);
+    const searchTerm = event.target.search.value; // handle '&'
+    fetch(`http://localhost:3000/posts/search?q=${searchTerm}`)
+    .then((r) => r.json())
+    .then((data) => displayPosts(data));
 })
 
 fetch("http://localhost:3000/posts")
