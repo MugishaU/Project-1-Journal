@@ -11,16 +11,37 @@ function displayPosts(posts){
         const article = document.createElement(`article`)
         article.setAttribute("id", `post${post.id}`)
         postSection.append(article)
+
+        //title div wrapper//
+        const titleDiv = document.createElement('div')
+        titleDiv.setAttribute("id", "titleDiv")
+        article.append(titleDiv)
+        //title Label//
+        const titleLabel = document.createElement('h1')
+        titleLabel.setAttribute("id", "titleLabel")
+        titleLabel.textContent = "Title:"
+        titleDiv.append(titleLabel)
         //title//
         const title = document.createElement(`h1`)
         title.setAttribute("id", `title${post.id}`)
-        title.textContent = `Title: ${post.title}`
-         article.append(title)
+        title.textContent = `${post.title}`
+        titleDiv.append(title)
+        
+
+        //description div wrapper//
+        const descriptionDiv = document.createElement('div')
+        descriptionDiv.setAttribute("id", "descriptionDiv")
+        article.append(descriptionDiv)        
+        //description label//
+        const descriptionLabel = document.createElement('h1')
+        descriptionLabel.setAttribute("id", "descriptionLabel")
+        descriptionLabel.textContent = "Description:"
+        descriptionDiv.append(descriptionLabel)
         //description//
         const description = document.createElement(`p`)
         description.setAttribute("id", `description${post.id}`)
-        description.textContent = `Description: ${post.description}`
-        article.append(description)
+        description.textContent = `${post.description}`
+        descriptionDiv.append(description)
 
         //gif//
 

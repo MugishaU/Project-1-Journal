@@ -9,6 +9,13 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-image: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+    background-repeat: none;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.3fr;
+}
+
 
 /* ------ Header ----- */
 header {
@@ -20,7 +27,9 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #ddd;
+    background-color: 
+    #ABDCFF;
+    z-index: 1;
 
 }
 nav ul {
@@ -43,13 +52,12 @@ nav ul li a{
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.1em;
     font-weight: 500;
-    color: black;
+    color: #5e6472;
 }
 
 nav ul li a:hover{
     font-weight: 900;
-    text-decoration: underline;
-    color: black;
+    color: #4d525e;
 }
 
 @media only screen and (max-width: 800px) {
@@ -82,21 +90,86 @@ nav ul li a:hover{
 /* index.html */
 section {
     display: grid;
+    grid-gap: 0;
+    grid-column-start: 2;
+
+
+
+}
+
+section #previewOfPosts {
+    display: grid;
+    margin-top: 30px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 30px;
+    /* background: #ddd; */
+    padding: 50px;
+    font-weight: 1000;
+    transform: scale(.8,0.8);
+}
+
+/* Title div  */
+
+#titleDiv {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+}
+
+#titleLabel {
+    display: inline-block;
+    /* margin-right: 50px; */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transform: scale(.8,0.8);
+    font-weight: bold;
 
 }
 
 section h1 {
-    display: grid;
-    justify-content: center;
+    display: inline-block;
+    /* text-align: center; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #5e6472;
+    letter-spacing: 0.1em;
+    transform: scale(1,1);
 }
+
+/* Title div  */
+/* Description div  */
+
+#descriptionDiv {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+}
+
+
+#descriptionLabel {
+    /* display: block; */
+    /* margin-right: 50px; */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transform: scale(.8,0.8);
+    font-weight: bold;
+    display: grid;
+    justify-content: start;
+}
+
 
 section p {
+    font-family: 'Montserrat Alternates', sans-serif;
     display: block;
-    padding: 5px 20%;
-    text-align: center;
+    /* padding: 5px 50px; */
+    text-align: left;
     text-justify: auto;
+    color:#5e6472 ;
+
 }
 
+/* Description div  */
 
 /* ------ To the Top button ----- */
 #buttonToTop {
