@@ -14,6 +14,7 @@ form.addEventListener("submit", (event) => {
   submitPost(title, description, content, gif);
   alert("Post created");
   form.reset();
+  redirectHome();
 });
 
 charCount(title, "titleCount");
@@ -49,4 +50,8 @@ function submitPost(title, description, content, gif) {
   };
 
   fetch("http://localhost:3000/posts/newpost", options);
+}
+
+function redirectHome() {
+  window.location.href = "index.html";
 }

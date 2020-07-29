@@ -11,7 +11,7 @@ function displayPosts(posts) {
     article.setAttribute("id", `post${post.id}`);
     postSection.append(article);
     //title//
-    const title = document.createElement(`h1`);
+    const title = document.createElement(`h2`);
     title.setAttribute("id", `title${post.id}`);
     title.textContent = post.title;
     article.append(title);
@@ -28,7 +28,7 @@ function displayPosts(posts) {
     article.append(gifDiv);
     const giphy = document.createElement("img");
 
-    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
+    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
     fetch(url)
       .then((r) => r.json())
       .then((data) => {
@@ -49,54 +49,43 @@ function displayPosts(posts) {
     const like = document.createElement("i");
     like.setAttribute("id", `like${post.id}`);
     like.setAttribute("class", "fas fa-thumbs-up");
-    reactionBar.append(like);
-    //like count//
-    const likeCount = document.createElement("h5");
-    likeCount.setAttribute("id", `likeCount${post.id}`);
     like.textContent = ` ${post.reaction.like}`;
-    reactionBar.append(likeCount);
-    // reactionCount(like, post.reaction.like, post.id, "like");
+    reactionBar.append(like);
+
     //clap//
     const clap = document.createElement("i");
     clap.setAttribute("id", `clap${post.id}`);
     clap.setAttribute("class", "fas fa-sign-language");
-    reactionBar.append(clap);
-    //clap count//
-    const clapCount = document.createElement("h5");
-    clapCount.setAttribute("id", `clapCount${post.id}`);
     clap.textContent = ` ${post.reaction.clap}`;
-    reactionBar.append(clapCount);
-    // reactionCount(clap, post.reaction.clap, post.id, "clap");
+    reactionBar.append(clap);
+
     //love//
     const love = document.createElement("i");
     love.setAttribute("id", `love${post.id}`);
     love.textContent = ` ${post.reaction.love}`;
     love.setAttribute("class", "fas fa-heart");
     reactionBar.append(love);
-    // reactionCount(love, post.reaction.love, post.id, "love");
-    //love count//
-    const loveCount = document.createElement("h5");
-    loveCount.setAttribute("id", `loveCount${post.id}`);
-    reactionBar.append(loveCount);
+
+    const br = document.createElement("br");
+    reactionBar.append(br);
+
     //post Link//
     const postLink = document.createElement("a");
     postLink.setAttribute("id", `postLink${post.id}`);
-    postLink.setAttribute("href", `posts.html#post${post.id}`);
+    postLink.setAttribute("href", `singlepost.html`);
     reactionBar.append(postLink);
     //button in "post Link" to Go to Post//
     const buttonPostLink = document.createElement("button");
     buttonPostLink.setAttribute("id", "buttonPostLink");
     buttonPostLink.textContent = "Go to Post";
     postLink.append(buttonPostLink);
+    postId(buttonPostLink, post.id);
   }
 }
 
-function reactionCount(button, count, id, type) {
+function postId(button, id) {
   button.addEventListener("click", () => {
-    count += 1;
-    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
-    button.innerHTML = ` ${count}`;
-    button.disabled = true;
+    fetch(`http://localhost:3000/posts/postid?id=${id}`);
   });
 }
 

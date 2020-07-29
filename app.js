@@ -5,6 +5,7 @@ const fs = require("fs");
 const app = express();
 const port = 3000;
 let posts;
+let singlePostId;
 
 readJSON();
 app.use(cors());
@@ -58,6 +59,14 @@ app.post("/posts/newcomment", (req, res) => {
   writeJSON(posts);
 });
 
+app.get("/posts/postid", (req, res) => {
+  singlePostId = req.query.id;
+});
+
+app.get("/posts/singlepost", (req, res) => {
+  res.send(JSON.stringify(posts[singlePostId]));
+});
+
 function readJSON() {
   fs.readFile("./posts.json", "utf8", (err, jsonString) => {
     if (err) {
@@ -80,16 +89,3 @@ function writeJSON(body) {
       : console.log("Successfully written to posts.json");
   });
 }
-
-// [
-//   {
-//     id: 0,
-//     title: "Test Post",
-//     description: "A brief post to test with",
-//     content:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.",
-//     gif: "",
-//     reaction: { like: 5, clap: 0, love: 0 },
-//     comments: ["comment1", "comment2", "comment3"],
-//   },
-// ];

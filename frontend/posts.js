@@ -11,7 +11,7 @@ function displayPosts(posts) {
     article.setAttribute("id", `post${post.id}`);
     postSection.append(article);
     //title//
-    const title = document.createElement(`h1`);
+    const title = document.createElement("h2");
     title.setAttribute("id", `title${post.id}`);
     title.textContent = post.title;
     article.append(title);
@@ -26,7 +26,7 @@ function displayPosts(posts) {
     gifDiv.setAttribute("id", "gifDiv");
     article.append(gifDiv);
     const giphy = document.createElement("img");
-    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
+    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
     fetch(url)
       .then((r) => r.json())
       .then((data) => {
@@ -47,24 +47,16 @@ function displayPosts(posts) {
     const like = document.createElement("button");
     like.setAttribute("id", `like${post.id}`);
     like.setAttribute("class", "fas fa-thumbs-up");
-    reactionBar.append(like);
-
-    const likeCount = document.createElement("h5");
-    likeCount.setAttribute("id", `likeCount${post.id}`);
     like.textContent = ` ${post.reaction.like}`;
-    reactionBar.append(likeCount);
+    reactionBar.append(like);
     reactionCount(like, post.reaction.like, post.id, "like");
 
     //clap//
     const clap = document.createElement("button");
     clap.setAttribute("id", `clap${post.id}`);
     clap.setAttribute("class", "fas fa-sign-language");
-    reactionBar.append(clap);
-
-    const clapCount = document.createElement("h5");
-    clapCount.setAttribute("id", `clapCount${post.id}`);
     clap.textContent = ` ${post.reaction.clap}`;
-    reactionBar.append(clapCount);
+    reactionBar.append(clap);
     reactionCount(clap, post.reaction.clap, post.id, "clap");
 
     //love//
@@ -75,10 +67,6 @@ function displayPosts(posts) {
     reactionBar.append(love);
     reactionCount(love, post.reaction.love, post.id, "love");
 
-    const loveCount = document.createElement("h5");
-    loveCount.setAttribute("id", `loveCount${post.id}`);
-    reactionBar.append(loveCount);
-
     //comments Area//
     const commentsArea = document.createElement("div");
     commentsArea.setAttribute("id", `commentsArea${post.id}`);
@@ -88,6 +76,11 @@ function displayPosts(posts) {
     const publishedComments = document.createElement("div");
     publishedComments.setAttribute("id", `publishedComments${post.id}`);
     commentsArea.append(publishedComments);
+
+    const commentHeader = document.createElement("h3");
+    commentHeader.setAttribute("id", `commentHeader${post.id}`);
+    commentHeader.textContent = "Comments";
+    publishedComments.append(commentHeader);
 
     //print each comment
     for (const comment of post.comments) {
