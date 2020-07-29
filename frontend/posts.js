@@ -21,6 +21,23 @@ function displayPosts(posts) {
     main.textContent = post.content;
     article.append(main);
     //gif//
+    //Create div element for gif and append to article
+    const gifDiv = document.createElement("div");
+    gifDiv.setAttribute("id", "gifDiv");
+    article.append(gifDiv);
+    const giphy = document.createElement("img");
+    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        //grabbing gif image
+        giphy.src = data.data[0].images.original.url;
+        //making gif image append to div
+        gifDiv.append(giphy);
+      })
+      .catch(function () {
+        console.log("No GIF entry");
+      });
     //reaction bar//
     const reactionBar = document.createElement("div");
     reactionBar.setAttribute("id", `reactionBar${post.id}`);
