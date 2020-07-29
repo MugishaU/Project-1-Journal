@@ -1,31 +1,157 @@
-const test = document.getElementById('test')
-const allPosts = document.getElementById('allPosts')
+const postSection = document.getElementById("postSection");
 
+fetch("http://localhost:3000/posts")
+  .then((r) => r.json())
+  .then((data) => displayPosts(data));
 
-fetch('http://localhost:3000/posts')
-    .then(r => r.json())
-    .then(data => displayPosts(data));
+function displayPosts(posts) {
+  for (post of posts) {
+    //article//
+    const article = document.createElement(`article`);
+    article.setAttribute("id", `post${post.id}`);
+    postSection.append(article);
+    //title//
+    const title = document.createElement(`h1`);
+    title.setAttribute("id", `title${post.id}`);
+    title.textContent = post.title;
+    article.append(title);
+    //main body of post//
+    const main = document.createElement("p");
+    main.setAttribute("id", `main${post.id}`);
+    main.textContent = post.content;
+    article.append(main);
+    //gif//
+    //Create div element for gif and append to article
+    const gifDiv = document.createElement("div");
+    gifDiv.setAttribute("id", "gifDiv");
+    article.append(gifDiv);
+    const giphy = document.createElement("img");
+    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        //grabbing gif image
+        giphy.src = data.data[0].images.original.url;
+        //making gif image append to div
+        gifDiv.append(giphy);
+      })
+      .catch(function () {
+        console.log("No GIF entry");
+      });
+    //reaction bar//
+    const reactionBar = document.createElement("div");
+    reactionBar.setAttribute("id", `reactionBar${post.id}`);
+    article.append(reactionBar);
 
-    
+    //like//
+    const like = document.createElement("button");
+    like.setAttribute("id", `like${post.id}`);
+    like.setAttribute("class", "fas fa-thumbs-up");
+    reactionBar.append(like);
 
-function displayPosts(posts){
-    
-    for(post of posts){
-        const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
-        fetch(url)
-        .then(r => r.json())
-        .then(data => {
-            const giphy = document.createElement("img");
-            giphy.src = data.data[0].images.original.url;
-            allPosts.append(giphy);
-        })
-        .catch(function(){
-            console.log("No GIF entry")
-        });
+    const likeCount = document.createElement("h5");
+    likeCount.setAttribute("id", `likeCount${post.id}`);
+    like.textContent = ` ${post.reaction.like}`;
+    reactionBar.append(likeCount);
+    reactionCount(like, post.reaction.like, post.id, "like");
 
-        const title = document.createElement('p');
-        title.textContent = `Title of #${post.id} is: ${post.title} `
-        allPosts.append(title);
-        
+    //clap//
+    const clap = document.createElement("button");
+    clap.setAttribute("id", `clap${post.id}`);
+    clap.setAttribute("class", "fas fa-sign-language");
+    reactionBar.append(clap);
+
+    const clapCount = document.createElement("h5");
+    clapCount.setAttribute("id", `clapCount${post.id}`);
+    clap.textContent = ` ${post.reaction.clap}`;
+    reactionBar.append(clapCount);
+    reactionCount(clap, post.reaction.clap, post.id, "clap");
+
+    //love//
+    const love = document.createElement("button");
+    love.setAttribute("id", `love${post.id}`);
+    love.textContent = ` ${post.reaction.love}`;
+    love.setAttribute("class", "fas fa-heart");
+    reactionBar.append(love);
+    reactionCount(love, post.reaction.love, post.id, "love");
+
+    const loveCount = document.createElement("h5");
+    loveCount.setAttribute("id", `loveCount${post.id}`);
+    reactionBar.append(loveCount);
+
+    //comments Area//
+    const commentsArea = document.createElement("div");
+    commentsArea.setAttribute("id", `commentsArea${post.id}`);
+    article.append(commentsArea);
+
+    //published comments
+    const publishedComments = document.createElement("div");
+    publishedComments.setAttribute("id", `publishedComments${post.id}`);
+    commentsArea.append(publishedComments);
+
+    //print each comment
+    for (const comment of post.comments) {
+      const commentP = document.createElement("p");
+      commentP.textContent = comment;
+      publishedComments.append(commentP);
     }
+
+    //create form to add comments
+    const commentForm = document.createElement("form");
+    commentForm.setAttribute("id", `commentForm${post.id}`);
+    commentsArea.append(commentForm);
+
+    //Text area input label
+    const commentLabel = document.createElement("label");
+    commentLabel.setAttribute("id", `commentLabel${post.id}`);
+    commentLabel.setAttribute("for", `commentInput${post.id}`);
+    commentForm.append(commentLabel);
+
+    //Text area input
+    const commentInput = document.createElement("textarea");
+    commentInput.setAttribute("id", `commentInput${post.id}`);
+    commentInput.setAttribute("name", `commentInput${post.id}`);
+    commentInput.setAttribute("required", "required");
+    commentForm.append(commentInput);
+
+    const submitComment = document.createElement("input");
+    submitComment.setAttribute("id", `submitComment${post.id}`);
+    submitComment.setAttribute("type", "submit");
+    submitComment.setAttribute("value", "Submit Comment");
+    commentForm.append(submitComment);
+
+    newComment(commentForm, post.id, `commentInput${post.id}`);
+  }
 }
+
+function newComment(form, id, name) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const commentContent = { comment: event.target[name].value, id: id };
+    const options = { method: "POST", body: JSON.stringify(commentContent) };
+    fetch("http://localhost:3000/posts/newcomment", options);
+    alert("Comment saved, viewable on refresh");
+    form.reset();
+  });
+}
+
+function reactionCount(button, count, id, type) {
+  button.addEventListener("click", () => {
+    count += 1;
+    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
+    button.innerHTML = ` ${count}`;
+    button.disabled = true;
+  });
+}
+
+// To the top button //
+const buttonToTop = document.getElementById("buttonToTop");
+buttonToTop.addEventListener("click", () => {
+  // window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behaviour: "smooth",
+  });
+});
+// End of "scroll to the top" button//

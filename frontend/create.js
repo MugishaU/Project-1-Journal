@@ -12,6 +12,8 @@ form.addEventListener("submit", (event) => {
   const gif = event.target.gif.value;
 
   submitPost(title, description, content, gif);
+  alert("Post created");
+  form.reset();
 });
 
 charCount(title, "titleCount");
@@ -24,14 +26,16 @@ function charCount(trackElement, postElementid) {
     document.getElementById(
       postElementid
     ).textContent = `${count}/${event.target.maxLength}`;
+
+    if (`${count}` === `${event.target.maxLength}`) {
+      document.getElementById(postElementid).style.color = "red";
+    } else {
+      document.getElementById(postElementid).style.color = "black";
+    }
   });
 }
 
 function submitPost(title, description, content, gif) {
-  console.log(`Title: ${title}`);
-  console.log(`Description: ${description}`);
-  console.log(`Content: ${content}`);
-  console.log(`GIF: ${gif}`);
   const newPostElements = {
     title: title,
     description: description,
