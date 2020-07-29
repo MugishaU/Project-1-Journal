@@ -9,7 +9,7 @@ searchBar.addEventListener("submit", (event) => {
     postSection.setAttribute("id", "postSection");
     main.append(postSection);
     const searchTerm = event.target.search.value; // handle '&'
-    fetch(`http://localhost:3000/posts/search?q=${searchTerm}`)
+    fetch(`http://localhost:3000/posts/search/allPosts?q=${searchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
 })
@@ -23,7 +23,7 @@ function displayPosts(posts) {
     //article//
     const article = document.createElement(`article`);
     article.setAttribute("id", `post${post.id}`);
-    postSection.append(article);
+    document.getElementById("postSection").append(article);
     //title//
     const title = document.createElement("h2");
     title.setAttribute("id", `title${post.id}`);

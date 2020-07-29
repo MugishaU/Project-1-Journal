@@ -67,21 +67,27 @@ app.get("/posts/singlepost", (req, res) => {
   res.send(JSON.stringify(posts[singlePostId]));
 });
 
-app.get("/posts/search", (req, res) => {
+app.get("/posts/search/allPosts", (req, res) => {
     readJSON();
     const searchTerm = req.query.q;
-    let returnPosts = postFilter(searchTerm);
+    let returnPosts = postFilter(searchTerm, 'allPost');
     console.log(searchTerm);
     console.log(returnPosts);
     res.send(JSON.stringify(returnPosts));
 });
 
-function postFilter(searchTerm){
-    return posts.filter((post) =>
-        post.title.includes(searchTerm) ||
-        post.description.includes(searchTerm) ||
-        post.content.includes(searchTerm)
-    );
+function postFilter(searchTerm, origin){
+    if(origin === 'home'){
+        return posts.filter((post) =>
+            post.title.includes(searchTerm) ||
+            post.description.includes(searchTerm)
+        );
+    } else {
+        return posts.filter((post) =>
+            post.title.includes(searchTerm) ||
+            post.content.includes(searchTerm)
+        );
+    }
 };
 
 function readJSON() {
