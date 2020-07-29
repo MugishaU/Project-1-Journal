@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b99e3d5816.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="singlepost.js"></script>
+    <title>Post</title>
+  </head>
+  <body>
+    <section>
+      <article id="post">
+        <h1 id="title"></h1>
+        <p id="main"></p>
+        <img id="gif" />
+
+        <div id="reactionBar">
+          <button>
+            <i id="like"></i>
+            <h5 id="likeCount" class="fas fa-thumbs-up">2</h5>
+          </button>
+          <button>
+            <i id="clap"></i>
+            <h5 id="clapCount" class="fas fa-sign-language">3</h5>
+          </button>
+          <button>
+            <i id="love" class="fas fa-heart"></i>
+            <h5 id="loveCount">3</h5>
+          </button>
+        </div>
+
+        <div id="commentsArea">
+          <div id="publishedComments"></div>
+          <form id="commentForm">
+            <label id="commentLabel" for="commentInput"></label>
+            <textarea id="commentInput" name="commentInput"></textarea>
+            <input id="submitComment" type="submit" value="submit" />
+          </form>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>
