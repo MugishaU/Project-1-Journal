@@ -26,7 +26,7 @@ function displayPosts(posts) {
     gifDiv.setAttribute("id", "gifDiv");
     article.append(gifDiv);
     const giphy = document.createElement("img");
-    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&limit=1`;
+    const url = `http://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
     fetch(url)
       .then((r) => r.json())
       .then((data) => {
