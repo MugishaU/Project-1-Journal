@@ -9,7 +9,16 @@ searchBar.addEventListener("submit", (event) => {
     postSection.setAttribute("id", "postSection");
     main.append(postSection);
     let searchTerm = event.target.search.value; // handle '&'
-    fetch(`http://localhost:3000/posts/search/allPosts?q=${searchTerm}`)
+    let newSearchTerm = "";
+    for(let i = 0; i < searchTerm.length; i++){
+        let letter = searchTerm[i];
+        if (letter === "&"){
+            newSearchTerm += "%26";
+        } else {
+            newSearchTerm += letter;
+        }
+    };
+    fetch(`http://localhost:3000/posts/search/allPosts?q=${newSearchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
 })
