@@ -76,6 +76,15 @@ app.get("/posts/search/allPosts", (req, res) => {
     res.send(JSON.stringify(returnPosts));
 });
 
+app.get("/posts/search/home", (req, res) => {
+    readJSON();
+    const searchTerm = req.query.q;
+    let returnPosts = postFilter(searchTerm, 'home');
+    console.log(searchTerm);
+    console.log(returnPosts);
+    res.send(JSON.stringify(returnPosts));
+});
+
 function postFilter(searchTerm, origin){
     if(origin === 'home'){
         return posts.filter((post) =>
