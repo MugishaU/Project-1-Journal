@@ -53,5 +53,5 @@ function submitPost(title, description, content, gif) {
 }
 
 function redirectHome() {
-  window.location.href = "index.html";
+  window.location.href = "https://majc-blogs.netlify.app/frontend/index.html";
 }
