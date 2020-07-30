@@ -18,7 +18,7 @@ searchBar.addEventListener("submit", (event) => {
       newSearchTerm += letter;
     }
   }
-  fetch(`https://majc-blogs.herokuapp.com/post/search/home?q=${newSearchTerm}`)
+  fetch(`https://majc-blogs.herokuapp.com/posts/search/home?q=${newSearchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
 });
