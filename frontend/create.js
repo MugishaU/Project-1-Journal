@@ -29,7 +29,7 @@ function charCount(trackElement, postElementid) {
     ).textContent = `${count}/${event.target.maxLength}`;
 
     if (`${count}` === `${event.target.maxLength}`) {
-      document.getElementById(postElementid).style.color = "red";
+      document.getElementById(postElementid).style.color = "#ff1a1a";
     } else {
       document.getElementById(postElementid).style.color = "black";
     }
