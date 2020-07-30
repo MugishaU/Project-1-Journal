@@ -1,1 +1,20 @@
-[{"id":0,"title":"Test Post","description":"A brief post to test with","content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum lectus nec massa eleifend, vitae faucibus odio tincidunt. Pellentesque eleifend, augue nec congue molestie.","gif":"","reaction":{"like":22,"clap":15,"love":9},"comments":["comment1","comment2","comment3","Alex's comment"]},{"id":1,"title":"new post","description":"cindys new layout","content":"stuff","gif":"bob","reaction":{"like":12,"clap":7,"love":7},"comments":["Hey Bobby Boi","bvcvbxc","hello","yo"]},{"id":2,"title":"new post","description":"Lorem ipsum ","content":"Lorem ipsum","gif":"lorem","reaction":{"like":1,"clap":1,"love":1},"comments":[]},{"id":3,"title":"Sloths are great","description":"Sloths are great, heres why","content":"sloth blha blhabladjugfgfhygsyergf","gif":"Sloth","reaction":{"like":0,"clap":0,"love":1},"comments":["so weird"]},{"id":4,"title":"Test For &","description":"Test post to fix '&' issue","content":"blha blah blah ablha blah alahduheu &&&&&&","gif":"thinking","reaction":{"like":0,"clap":0,"love":0},"comments":[]},{"id":5,"title":"Test Post 2345!","description":"dhjgfeyug","content":"ufygsufy","gif":"number","reaction":{"like":0,"clap":0,"love":0},"comments":[]}]
+[
+  {
+    "id": 0,
+    "title": "Initial Commit",
+    "description": "Our first post to test deployment to Heroku",
+    "content": "This is our first post, the hope is that you've opened this in your browser. The further hope is that this entire website is being hosted by Heroku and had continous integration with thanks to a Github connection. Well, here's hoping, see you on the other side!",
+    "gif": "github",
+    "reaction": { "like": 0, "clap": 0, "love": 1 },
+    "comments": ["Hey hope this works!!! Wrote this comment before deployment"]
+  },
+  {
+    "id": 1,
+    "title": "Michael Jordan",
+    "description": "A random post, for testing ",
+    "content": "This post is about Michael Jordan, plan on using it to check the search bar still works after deployment, but it should... right?",
+    "gif": "Michael Jordan",
+    "reaction": { "like": 0, "clap": 1, "love": 0 },
+    "comments": ["The GOAT- before deployment"]
+  }
+]
