@@ -14,6 +14,10 @@ app.listen(port, () =>
   console.log(`Express server running at http://localhost:${port}/posts`)
 );
 
+app.get("/", (req, res) => {
+  res.send("Blogs API running");
+});
+
 app.get("/posts", (req, res) => {
   readJSON();
   res.send(posts);
