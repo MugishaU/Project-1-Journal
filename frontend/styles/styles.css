@@ -37,6 +37,7 @@ article {
   border: none;
   margin-top: 18px;
   outline: none;
+  padding-left: 10px; 
 }
 #searchBar {
   display: inherit;
@@ -259,7 +260,7 @@ button:disabled {
   background-color: #9599a1;
 }
 
-#commentsArea {
+.commentsArea {
   background-color: #c4b6a154;
   /* padding: 20px; */
   margin: auto;
@@ -267,7 +268,7 @@ button:disabled {
   border-radius: 10px;
 }
 
-#commentsArea p {
+.commentsArea p {
   background-color: #ffffff;
   padding: 10px;
   border-radius: 6px;
@@ -276,7 +277,7 @@ button:disabled {
   text-align: justify;
 }
 
-#commentsArea textarea {
+.commentsArea textarea {
   width: 90%;
   height: 70px;
   resize: none;
@@ -289,7 +290,7 @@ button:disabled {
   outline: none;
 }
 
-#commentsArea input {
+.commentsArea input {
   background-color: #ffffffce;
   border: solid #d6cdc5 0.1px;
   color: rgb(66, 62, 62);
@@ -307,7 +308,7 @@ button:disabled {
 
 }
 
-#commentsArea input:hover {
+.commentsArea input:hover {
   background-color: #eeebe8a6;
 }
 
