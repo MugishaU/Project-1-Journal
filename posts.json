@@ -5,7 +5,7 @@
     "description": "Our first post to test deployment to Heroku",
     "content": "This is our first post, the hope is that you've opened this in your browser. The further hope is that this entire website is being hosted by Heroku and had continous integration with thanks to a Github connection. Well, here's hoping, see you on the other side!",
     "gif": "github",
-    "reaction": { "like": 0, "clap": 0, "love": 1 },
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
     "comments": ["Hey hope this works!!! Wrote this comment before deployment"]
   },
   {
@@ -14,7 +14,7 @@
     "description": "A random post, for testing ",
     "content": "This post is about Michael Jordan, plan on using it to check the search bar still works after deployment, but it should... right?",
     "gif": "Michael Jordan",
-    "reaction": { "like": 0, "clap": 1, "love": 0 },
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
     "comments": ["The GOAT- before deployment"]
   }
 ]
