@@ -1,4 +1,27 @@
 const postSection = document.getElementById("postSection");
+const searchBar = document.getElementById("searchBar");
+const main = document.getElementById("main");
+
+searchBar.addEventListener("submit", (event) => {
+    event.preventDefault();
+    document.getElementById("postSection").remove();
+    const postSection = document.createElement("section");
+    postSection.setAttribute("id", "postSection");
+    main.append(postSection);
+    let searchTerm = event.target.search.value; // handle '&'
+    let newSearchTerm = "";
+    for(let i = 0; i < searchTerm.length; i++){
+        let letter = searchTerm[i];
+        if (letter === "&"){
+            newSearchTerm += "%26";
+        } else {
+            newSearchTerm += letter;
+        }
+    };
+    fetch(`http://localhost:3000/posts/search/home?q=${newSearchTerm}`)
+    .then((r) => r.json())
+    .then((data) => displayPosts(data));
+})
 
 fetch("http://localhost:3000/posts")
   .then((r) => r.json())
@@ -9,7 +32,7 @@ function displayPosts(posts) {
     //article//
     const article = document.createElement(`article`);
     article.setAttribute("id", `post${post.id}`);
-    postSection.append(article);
+    document.getElementById("postSection").append(article);
     //title//
     const title = document.createElement(`h2`);
     title.setAttribute("id", `title${post.id}`);
