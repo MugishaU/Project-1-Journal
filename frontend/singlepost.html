@@ -15,7 +15,9 @@
     <header>
       <nav>
         <ul>
-          <li><a href="../index.html">Home</a></li>
+          <li>
+            <a href="../index.html">Home<i class="fas fa-home"></i></a>
+          </li>
           <li>
             <a href="./create.html"
               >Create Post
@@ -23,7 +25,9 @@
             ></a>
           </li>
           <li>
-            <a href="./posts.html">All Posts <i class="fas fa-book"></i></a>
+            <a href="./posts.html"
+              >All Posts <i class="fas fa-book-reader"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -42,8 +46,8 @@
           <button id="love" class="fas fa-heart"></button>
         </div>
 
-        <div id="commentsArea">
-          <h3>Comments</h3>
+        <div class="commentsArea">
+          <h3 id="commentHeader">Comments</h3>
           <div id="publishedComments"></div>
           <form id="commentForm">
             <label id="commentLabel" for="commentInput"></label>
