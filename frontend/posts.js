@@ -48,8 +48,6 @@ function displayPosts(posts) {
     like.setAttribute("id", `like${post.id}`);
     like.setAttribute("class", "fas fa-thumbs-up");
     like.textContent = ` ${post.reaction.like}`;
-    // //design for like icon
-    // like.setAttribute("style", "background-color: #9c897652; border: solid #837669 0.2px; color: rgb(66, 62, 62); padding: 10px;  text-align: center; cursor: pointer; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 5%; margin-top: 20px;");
     reactionBar.append(like);
     reactionCount(like, post.reaction.like, post.id, "like");
 
@@ -89,7 +87,6 @@ function displayPosts(posts) {
     const commentHeader = document.createElement("h3");
     commentHeader.setAttribute("id", "commentHeader");
     commentHeader.textContent = "Comments";
-    commentHeader.setAttribute("style", "padding-bottom:20px;")
     publishedComments.append(commentHeader);
 
     //print each comment
@@ -115,7 +112,6 @@ function displayPosts(posts) {
     commentInput.setAttribute("id", `commentInput${post.id}`);
     commentInput.setAttribute("name", `commentInput${post.id}`);
     commentInput.setAttribute("required", "required");
-    commentInput.setAttribute("style", "width:800px; height: 20px; resize: none; font-family: 'Montserrat', sans-serif;")
     commentForm.append(commentInput);
 
     const br = document.createElement("br");
@@ -125,7 +121,6 @@ function displayPosts(posts) {
     submitComment.setAttribute("id", `submitComment${post.id}`);
     submitComment.setAttribute("type", "submit");
     submitComment.setAttribute("value", "Submit Comment");
-    submitComment.setAttribute("style", "background-color: #9c897652; border: solid #837669 0.2px; color: rgb(66, 62, 62); padding: 10px;  text-align: center; cursor: pointer; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; border-radius: 5%; margin-top: 20px;")
     commentForm.append(submitComment);
 
     newComment(commentForm, post.id, `commentInput${post.id}`);
