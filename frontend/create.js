@@ -49,7 +49,7 @@ function submitPost(title, description, content, gif) {
     body: JSON.stringify(newPostElements),
   };
 
-  fetch("http://localhost:3000/posts/newpost", options);
+  fetch("https://majc-blogs.herokuapp.com/posts/newpost", options);
 }
 
 function redirectHome() {

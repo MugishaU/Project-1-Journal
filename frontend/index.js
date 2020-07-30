@@ -3,27 +3,27 @@ const searchBar = document.getElementById("searchBar");
 const main = document.getElementById("main");
 
 searchBar.addEventListener("submit", (event) => {
-    event.preventDefault();
-    document.getElementById("postSection").remove();
-    const postSection = document.createElement("section");
-    postSection.setAttribute("id", "postSection");
-    main.append(postSection);
-    let searchTerm = event.target.search.value; // handle '&'
-    let newSearchTerm = "";
-    for(let i = 0; i < searchTerm.length; i++){
-        let letter = searchTerm[i];
-        if (letter === "&"){
-            newSearchTerm += "%26";
-        } else {
-            newSearchTerm += letter;
-        }
-    };
-    fetch(`http://localhost:3000/posts/search/home?q=${newSearchTerm}`)
+  event.preventDefault();
+  document.getElementById("postSection").remove();
+  const postSection = document.createElement("section");
+  postSection.setAttribute("id", "postSection");
+  main.append(postSection);
+  let searchTerm = event.target.search.value; // handle '&'
+  let newSearchTerm = "";
+  for (let i = 0; i < searchTerm.length; i++) {
+    let letter = searchTerm[i];
+    if (letter === "&") {
+      newSearchTerm += "%26";
+    } else {
+      newSearchTerm += letter;
+    }
+  }
+  fetch(`https://majc-blogs.herokuapp.com/post/search/home?q=${newSearchTerm}`)
     .then((r) => r.json())
     .then((data) => displayPosts(data));
-})
+});
 
-fetch("http://localhost:3000/posts")
+fetch("https://majc-blogs.herokuapp.com/posts")
   .then((r) => r.json())
   .then((data) => displayPosts(data));
 
@@ -108,7 +108,7 @@ function displayPosts(posts) {
 
 function postId(button, id) {
   button.addEventListener("click", () => {
-    fetch(`http://localhost:3000/posts/postid?id=${id}`);
+    fetch(`https://majc-blogs.herokuapp.com/posts/postid?id=${id}`);
   });
 }
 

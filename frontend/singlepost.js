@@ -13,7 +13,7 @@ const commentForm = document.getElementById("commentForm");
 const commentInput = document.getElementById("commentInput");
 const submitComment = document.getElementById("submitComment");
 
-fetch("http://localhost:3000/posts/singlepost")
+fetch("https://majc-blogs.herokuapp.com/posts/singlepost")
   .then((r) => r.json())
   .then((data) => displayPost(data));
 
@@ -51,7 +51,9 @@ function displayPost(post) {
 function reactionCount(button, count, id, type) {
   button.addEventListener("click", () => {
     count += 1;
-    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
+    fetch(
+      `https://majc-blogs.herokuapp.com/posts/findpost?id=${id}&type=${type}`
+    );
     button.innerHTML = ` ${count}`;
     button.disabled = true;
   });
@@ -61,7 +63,7 @@ function newComment(form, id, name) {
   form.addEventListener("submit", (event) => {
     const commentContent = { comment: event.target[name].value, id: id };
     const options = { method: "POST", body: JSON.stringify(commentContent) };
-    fetch("http://localhost:3000/posts/newcomment", options);
+    fetch("https://majc-blogs.herokuapp.com/posts/newcomment", options);
     form.reset();
   });
 }

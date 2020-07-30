@@ -3,27 +3,29 @@ const searchBar = document.getElementById("searchBar");
 const main = document.getElementById("main");
 
 searchBar.addEventListener("submit", (event) => {
-    event.preventDefault();
-    document.getElementById("postSection").remove();
-    const postSection = document.createElement("section");
-    postSection.setAttribute("id", "postSection");
-    main.append(postSection);
-    let searchTerm = event.target.search.value; // handle '&'
-    let newSearchTerm = "";
-    for(let i = 0; i < searchTerm.length; i++){
-        let letter = searchTerm[i];
-        if (letter === "&"){
-            newSearchTerm += "%26";
-        } else {
-            newSearchTerm += letter;
-        }
-    };
-    fetch(`http://localhost:3000/posts/search/allPosts?q=${newSearchTerm}`)
+  event.preventDefault();
+  document.getElementById("postSection").remove();
+  const postSection = document.createElement("section");
+  postSection.setAttribute("id", "postSection");
+  main.append(postSection);
+  let searchTerm = event.target.search.value; // handle '&'
+  let newSearchTerm = "";
+  for (let i = 0; i < searchTerm.length; i++) {
+    let letter = searchTerm[i];
+    if (letter === "&") {
+      newSearchTerm += "%26";
+    } else {
+      newSearchTerm += letter;
+    }
+  }
+  fetch(
+    `https://majc-blogs.herokuapp.com/posts/search/allPosts?q=${newSearchTerm}`
+  )
     .then((r) => r.json())
     .then((data) => displayPosts(data));
-})
+});
 
-fetch("http://localhost:3000/posts")
+fetch("https://majc-blogs.herokuapp.com/posts")
   .then((r) => r.json())
   .then((data) => displayPosts(data));
 
@@ -79,11 +81,10 @@ function displayPosts(posts) {
     clap.setAttribute("id", `clap${post.id}`);
     clap.setAttribute("class", "fas fa-sign-language");
     clap.textContent = ` ${post.reaction.clap}`;
-    
-    clap.addEventListener("mouseover", function(event) {
-      event.target.style.backgroundolor="rgb(235,219,195)"
-    });
 
+    clap.addEventListener("mouseover", function (event) {
+      event.target.style.backgroundolor = "rgb(235,219,195)";
+    });
 
     reactionBar.append(clap);
     reactionCount(clap, post.reaction.clap, post.id, "clap");
@@ -155,7 +156,7 @@ function newComment(form, id, name) {
     event.preventDefault();
     const commentContent = { comment: event.target[name].value, id: id };
     const options = { method: "POST", body: JSON.stringify(commentContent) };
-    fetch("http://localhost:3000/posts/newcomment", options);
+    fetch("https://majc-blogs.herokuapp.com/posts/newcomment", options);
     alert("Comment saved, viewable on refresh");
     form.reset();
   });
@@ -164,7 +165,9 @@ function newComment(form, id, name) {
 function reactionCount(button, count, id, type) {
   button.addEventListener("click", () => {
     count += 1;
-    fetch(`http://localhost:3000/posts/findpost?id=${id}&type=${type}`);
+    fetch(
+      `https://majc-blogs.herokuapp.com/posts/findpost?id=${id}&type=${type}`
+    );
     button.innerHTML = ` ${count}`;
     button.disabled = true;
   });
