@@ -52,7 +52,7 @@ function displayPosts(posts) {
     const giphy = document.createElement("img");
 
     const url = `https://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
-    fetch(url, { credentials: "include" })
+    fetch(url)
       .then((r) => r.json())
       .then((data) => {
         //grabbing gif image
