@@ -95,7 +95,7 @@ function displayPosts(posts) {
     //post Link//
     const postLink = document.createElement("a");
     postLink.setAttribute("id", `postLink${post.id}`);
-    postLink.setAttribute("href", `singlepost.html`);
+    postLink.setAttribute("href", `/frontend/singlepost.html`);
     reactionBar.append(postLink);
     //button in "post Link" to Go to Post//
     const buttonPostLink = document.createElement("button");
