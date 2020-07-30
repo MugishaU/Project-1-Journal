@@ -1,5 +1,5 @@
 /* ------ Fonts ----- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Playfair+Display:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Playfair+Display:wght@500&display=swap");
 
 /* font-family: 'Montserrat', sans-serif;
 font-family: 'Playfair Display', serif;*/
@@ -23,29 +23,28 @@ article {
   margin-top: 30px;
   width: 80%;
   border-radius: 10px;
-
 }
 
 #search {
   width: 300px;
   height: 21px;
   resize: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   border-radius: 30px 0px 0px 30px;
   border: none;
   margin-top: 18px;
   outline: none;
-  padding-left: 10px; 
+  padding-left: 10px;
 }
 #searchBar {
   display: inherit;
 }
 
 #searchBtn {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ebdbc3ec;
   margin-left: -6px;
   padding-top: 3px;
   height: 22.2px;
@@ -56,12 +55,12 @@ article {
   border: none;
 }
 
-#searchBtn:hover{
+#searchBtn:hover {
   background-color: #dad0d0;
 }
 
 .topTitles {
-  font-family:'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-weight: 100;
   font-size: 60px;
   text-align: center;
@@ -70,7 +69,7 @@ article {
 }
 
 h2 {
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   background-color: #ffffff;
   padding: 10px;
@@ -81,7 +80,7 @@ h2 {
 }
 
 p {
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: auto;
   background-color: #ffffff;
   padding: 10px;
@@ -112,30 +111,28 @@ img {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 5%;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
-
-#buttonPostLink:hover{
-  background-color: rgb(235,219,195);
+#buttonPostLink:hover {
+  background-color: rgb(235, 219, 195);
 }
 
 #form {
   width: 80%;
   margin: auto;
   font-size: 30px;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 0.1em;
   padding-bottom: 150px;
 }
 
-
 #titleForm {
-  width: 600px;
+  width: 100%;
   height: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   margin-top: 20px;
@@ -147,10 +144,10 @@ img {
 }
 
 #descriptionForm {
-  width: 600px;
+  width: 100%;
   height: 100px;
   resize: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   margin-top: 20px;
@@ -161,15 +158,17 @@ img {
   background-color: #ebdbc300;
 }
 
-#titleCount, #descriptionCount, #contentCount {
+#titleCount,
+#descriptionCount,
+#contentCount {
   text-align: center;
 }
 
 #contentForm {
-  width: 600px;
+  width: 100%;
   height: 200px;
   resize: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   margin-top: 20px;
@@ -181,9 +180,9 @@ img {
 }
 
 #gifForm {
-  width: 600px;
+  width: 100%;
   height: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   margin-top: 20px;
@@ -206,35 +205,34 @@ img {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 5%;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   margin-top: 20px;
 }
 
-#submitForm:hover{
-  background-color: rgb(235,219,195);
+#submitForm:hover {
+  background-color: rgb(235, 219, 195);
 }
 
 #commentHeader {
   font-size: 30px;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-bottom: -2px;
   padding: 20px;
 }
 
-#postSection i { 
-  color: rgb(66, 62, 62); 
-  padding: 10px;  
-  text-align: center; 
-  text-decoration: none; 
+#postSection i {
+  color: rgb(66, 62, 62);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  font-size: 16px; 
-  margin: 4px 2px; 
-  border-radius: 5%; 
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5%;
   margin-top: 20px;
 }
-
 
 button {
   background-color: #eeebe8a6;
@@ -248,9 +246,9 @@ button {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 5%;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 button:hover {
@@ -281,7 +279,7 @@ button:disabled {
   width: 90%;
   height: 70px;
   resize: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 18px;
   border: none;
@@ -302,10 +300,9 @@ button:disabled {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 5%;
-  font-family:'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
-  margin-bottom: 20px; 
-
+  margin-bottom: 20px;
 }
 
 .commentsArea input:hover {
@@ -322,16 +319,12 @@ header {
 }
 /* ------ Navbar ----- */
 nav {
-
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: 
-    #cfbea3;
-    z-index: 1;
-
-
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #cfbea3;
+  z-index: 1;
 }
 nav ul {
   list-style-type: none;
@@ -346,19 +339,17 @@ nav ul li {
   padding-right: 40px;
 }
 
-
-nav ul li a{
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    color: #5e6472;
+nav ul li a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: #5e6472;
 }
 
-nav ul li a:hover{
-    font-weight: 900;
-    color: #4d525e;
-
+nav ul li a:hover {
+  font-weight: 900;
+  color: #4d525e;
 }
 
 @media only screen and (max-width: 800px) {
@@ -408,7 +399,6 @@ nav ul li a:hover{
 /* ------ End of Header ----- */
 /* ------ Body ----- */
 /* ------ Section ----- */
-
 
 /* ------ To the Top button ----- */
 #buttonToTop {
