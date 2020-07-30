@@ -56,6 +56,12 @@ function displayPosts(posts) {
     clap.setAttribute("id", `clap${post.id}`);
     clap.setAttribute("class", "fas fa-sign-language");
     clap.textContent = ` ${post.reaction.clap}`;
+    
+    clap.addEventListener("mouseover", function(event) {
+      event.target.style.backgroundolor="rgb(235,219,195)"
+    });
+
+
     reactionBar.append(clap);
     reactionCount(clap, post.reaction.clap, post.id, "clap");
 
@@ -64,6 +70,7 @@ function displayPosts(posts) {
     love.setAttribute("id", `love${post.id}`);
     love.textContent = ` ${post.reaction.love}`;
     love.setAttribute("class", "fas fa-heart");
+
     reactionBar.append(love);
     reactionCount(love, post.reaction.love, post.id, "love");
 
@@ -78,7 +85,7 @@ function displayPosts(posts) {
     commentsArea.append(publishedComments);
 
     const commentHeader = document.createElement("h3");
-    commentHeader.setAttribute("id", `commentHeader${post.id}`);
+    commentHeader.setAttribute("id", "commentHeader");
     commentHeader.textContent = "Comments";
     publishedComments.append(commentHeader);
 
@@ -106,6 +113,9 @@ function displayPosts(posts) {
     commentInput.setAttribute("name", `commentInput${post.id}`);
     commentInput.setAttribute("required", "required");
     commentForm.append(commentInput);
+
+    const br = document.createElement("br");
+    commentForm.append(br);
 
     const submitComment = document.createElement("input");
     submitComment.setAttribute("id", `submitComment${post.id}`);

@@ -1,9 +1,8 @@
 /* ------ Fonts ----- */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&family=Noto+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Playfair+Display:wght@500&display=swap');
 
 /* font-family: 'Montserrat', sans-serif;
-font-family: 'Montserrat Alternates', sans-serif;
-font-family: 'Noto Sans', sans-serif; */
+font-family: 'Playfair Display', serif;*/
 
 html {
   scroll-behavior: smooth;
@@ -11,11 +10,192 @@ html {
 
 
 body {
-    background-image: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
-    background-repeat: none;
+  text-align: center;
+  margin: auto;
+  background-color: #ffffff;
+  /* background: rgb(235,219,195);
+  background: linear-gradient(144deg, rgba(235,219,195,1) 11%, rgba(255,255,255,1) 100%); */
 }
 
+article {
+  background-color: #ffffff93;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
 
+}
+
+.topTitles {
+  font-family:'Playfair Display', serif;
+  font-weight: 100;
+  font-size: 60px;
+  text-align: center;
+  color: rgb(66, 62, 62);
+  padding: 30px;
+}
+
+h2 {
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: rgb(66, 62, 62);
+}
+
+p {
+  font-family:'Montserrat', sans-serif;
+  max-width: 80%;
+  margin: auto;
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(66, 62, 62);
+  padding: 20px;
+}
+
+img {
+  max-width: 300px;
+  margin: auto;
+}
+
+#buttonPostLink {
+  background-color: #eeebe8a6;
+  border: solid #837669 0.2px;
+  color: rgb(66, 62, 62);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5%;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 100;
+  margin-top: 20px; 
+}
+
+i#like.fas.fa-thumbs-up {
+  background-color: #eeebe8a6;
+  border: solid #837669 0.2px;
+  color: rgb(66, 62, 62);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5%;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 100;
+  margin-top: 20px; 
+}
+
+#buttonPostLink:hover{
+  background-color: rgb(235,219,195);
+}
+
+#form {
+  width: 80%;
+  margin: auto;
+  font-size: 30px;
+  font-family:'Montserrat', sans-serif;
+  letter-spacing: 0.1em;
+  padding-bottom: 150px;
+}
+
+#titleForm {
+  width: 600px;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+#titleCount {
+  padding-bottom: 60px;
+}
+
+#descriptionForm {
+  width: 600px;
+  height: 100px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+#descriptionCount {
+  padding-bottom: 60px;
+}
+
+#contentForm {
+  width: 600px;
+  height: 200px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+#contentCount {
+  padding-bottom: 60px;
+}
+
+#gifForm {
+  width: 600px;
+  height: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+#gifCount {
+  padding-bottom: 60px;
+}
+
+#submitForm {
+  background-color: #9c897652;
+  border: solid #837669 0.2px;
+  color: rgb(66, 62, 62);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5%;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 100;
+  margin-top: 20px;
+}
+
+#submitForm:hover{
+  background-color: rgb(235,219,195);
+}
+
+#commentHeader {
+  font-size: 30px;
+  font-family:'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-bottom: -2px;
+}
+
+#postSection i { 
+  color: rgb(66, 62, 62); 
+  padding: 10px;  
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px; 
+  margin: 4px 2px; 
+  border-radius: 5%; 
+  margin-top: 20px;
+}
 
 /* ------ Header ----- */
 header {
@@ -29,7 +209,7 @@ nav {
     top: 0;
     width: 100%;
     background-color: 
-    #ABDCFF;
+    #cfbea3;
     z-index: 1;
 
 
