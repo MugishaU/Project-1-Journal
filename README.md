@@ -16,11 +16,11 @@ Open https://majc-blogs.netlify.app/ and wait for 30 seconds if no content appea
 
 1. Pull code from Master Branch
 2. run 'npm install'
-3. run 'npm start' \*
-4. Open ./frontend/index.html \*\*
+3. run 'npm start'
+4. Open ./frontend/index.html
 
 - If any changes are made to app.js then to re-start server press CTRL+C twice and run steps 3 & 4 again.
-  \*\* If any changes are made by adding reactions, comments or posts a refresh may be needed to view changes
+- If any changes are made by adding reactions, comments or posts a refresh may be needed to view changes
 
 ## Known Bugs
 
