@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --reporter=text-summary mocha -r jsdom-global/register"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "jsdom": "16.3.0",
+    "jsdom-global": "3.0.2",
     "mocha": "^8.0.1",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
