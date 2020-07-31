@@ -15,7 +15,7 @@
     <header>
       <nav>
         <ul>
-          <li><a href="../frontend/index.html">Home</a></li>
+          <li><a href="../frontend/index.html">Home<i class="fas fa-home"></i></a></li>
           <li>
             <a href="../frontend/create.html"
               >Create Post
@@ -24,7 +24,7 @@
           </li>
           <li>
             <a href="../frontend/posts.html"
-              >All Posts <i class="fas fa-book"></i
+              >All Posts <i class="fas fa-book-reader"></i
             ></a>
           </li>
         </ul>
@@ -44,12 +44,13 @@
           <button id="love" class="fas fa-heart"></button>
         </div>
 
-        <div id="commentsArea">
-          <h3>Comments</h3>
+        <div class="commentsArea">
+          <h3 id="commentHeader">Comments</h3>
           <div id="publishedComments"></div>
           <form id="commentForm">
             <label id="commentLabel" for="commentInput"></label>
-            <textarea id="commentInput" name="commentInput" required></textarea>
+            <textarea id="commentInput" placeholder="Write your comment here..." name="commentInput" required></textarea>
+            <br>
             <input id="submitComment" type="submit" value="submit" />
           </form>
         </div>

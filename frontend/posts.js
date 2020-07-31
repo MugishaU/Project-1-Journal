@@ -99,7 +99,7 @@ function displayPosts(posts) {
 
     //comments Area//
     const commentsArea = document.createElement("div");
-    commentsArea.setAttribute("id", `commentsArea${post.id}`);
+    commentsArea.setAttribute("class", "commentsArea");
     article.append(commentsArea);
 
     //published comments
@@ -134,6 +134,7 @@ function displayPosts(posts) {
     const commentInput = document.createElement("textarea");
     commentInput.setAttribute("id", `commentInput${post.id}`);
     commentInput.setAttribute("name", `commentInput${post.id}`);
+    commentInput.setAttribute("placeholder", " Write your comment here...")
     commentInput.setAttribute("required", "required");
     commentForm.append(commentInput);
 
