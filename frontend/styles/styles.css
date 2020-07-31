@@ -62,6 +62,11 @@ article {
   color: white;
 }
 
+#searchBtn:active,
+#searchBtn:focus {
+  outline: none;
+}
+
 .topTitles {
   font-family: "Playfair Display", serif;
   font-weight: 100;
@@ -122,6 +127,11 @@ img {
 
 #buttonPostLink:hover {
   background-color: rgb(235, 219, 195);
+}
+
+#buttonPostLink:active,
+#buttonPostLink:focus {
+  outline: none;
 }
 
 #form {
@@ -218,6 +228,11 @@ img {
   background-color: rgb(235, 219, 195);
 }
 
+#submitForm:active,
+#submitForm:focus {
+  outline: none;
+}
+
 #commentHeader {
   font-size: 30px;
   font-family: "Montserrat", sans-serif;
@@ -310,6 +325,7 @@ button:active {
   border: none;
   border-radius: 8px;
   margin-top: 20px;
+  padding: 10px;
   outline: none;
 }
 
@@ -333,6 +349,11 @@ button:active {
 
 .commentsArea input:hover {
   background-color: #eeebe8a6;
+}
+
+.commentsArea input:active,
+.commentsArea input:focus {
+  outline: none;
 }
 
 #commentInput textarea {
