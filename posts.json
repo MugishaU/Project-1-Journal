@@ -7,5 +7,40 @@
     "gif": "party parrot",
     "reaction": { "like": 0, "clap": 0, "love": 0 },
     "comments": ["Try adding your own comment! Or maybe give this post a like?"]
+  },
+
+  {
+    "id": 1,
+    "title": "Man's Best Friend",
+    "description": "Here's a bloggy about a doggy",
+    "content": "Imagine being a pitbull, imagine how tiring it would be to run",
+    "gif": "dog",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a dog)! Or maybe give this post a like?"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Cats > Everything",
+    "description": "Cats are better than Dogs",
+    "content": "Cats always land on their feet",
+    "gif": "cat",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a cat)! Or maybe give this post a like?"
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "The King of the Jungle",
+    "description": "Bigs Cats",
+    "content": "Lions and cats and stuff",
+    "gif": "Lion",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a BIG cat)! Or maybe give this post a like?"
+    ]
   }
 ]
