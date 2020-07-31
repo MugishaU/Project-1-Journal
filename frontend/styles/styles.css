@@ -58,9 +58,7 @@ article {
 }
 
 #searchBtn:hover {
-  background-color: #dad0d0;
   background-color: #c4af8f;
-
   color: white;
 }
 
@@ -256,6 +254,22 @@ button {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.like:hover,
+.like:disabled {
+  color: blue;
+}
+
+.clap:hover,
+.clap:disabled {
+  color: green;
+}
+
+.heart:hover,
+.heart:disabled {
+  color: red;
 }
 
 button:hover {
@@ -263,6 +277,10 @@ button:hover {
 }
 button:disabled {
   background-color: #9599a1;
+}
+
+button:active {
+  outline: none;
 }
 
 .commentsArea {
