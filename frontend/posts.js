@@ -22,133 +22,144 @@ searchBar.addEventListener("submit", (event) => {
     `https://majc-blogs.herokuapp.com/posts/search/allPosts?q=${newSearchTerm}`
   )
     .then((r) => r.json())
-    .then((data) => displayPosts(data));
+    .then((data) => displayPosts(data, searchTerm));
 });
 
 fetch("https://majc-blogs.herokuapp.com/posts")
   .then((r) => r.json())
   .then((data) => displayPosts(data));
 
-function displayPosts(posts) {
-  for (post of posts) {
-    //article//
+function displayPosts(posts, searchTerm) {
+  if (posts.length === 0) {
     const article = document.createElement(`article`);
-    article.setAttribute("id", `post${post.id}`);
+    article.setAttribute("id", `post`);
     document.getElementById("postSection").append(article);
     //title//
-    const title = document.createElement("h2");
-    title.setAttribute("id", `title${post.id}`);
-    title.textContent = post.title;
+    const title = document.createElement(`h2`);
+    title.setAttribute("id", `title`);
+    title.textContent = `"${searchTerm}" returned no results`;
     article.append(title);
-    //main body of post//
-    const main = document.createElement("p");
-    main.setAttribute("id", `main${post.id}`);
-    main.textContent = post.content;
-    article.append(main);
-    //gif//
-    //Create div element for gif and append to article
-    const gifDiv = document.createElement("div");
-    gifDiv.setAttribute("id", "gifDiv");
-    article.append(gifDiv);
-    const giphy = document.createElement("img");
-    const url = `https://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
-        //grabbing gif image
-        giphy.src = data.data[0].images.original.url;
-        //making gif image append to div
-        gifDiv.append(giphy);
-      })
-      .catch(function () {
-        console.log("No GIF entry");
+  } else {
+    for (post of posts) {
+      //article//
+      const article = document.createElement(`article`);
+      article.setAttribute("id", `post${post.id}`);
+      document.getElementById("postSection").append(article);
+      //title//
+      const title = document.createElement("h2");
+      title.setAttribute("id", `title${post.id}`);
+      title.textContent = post.title;
+      article.append(title);
+      //main body of post//
+      const main = document.createElement("p");
+      main.setAttribute("id", `main${post.id}`);
+      main.textContent = post.content;
+      article.append(main);
+      //gif//
+      //Create div element for gif and append to article
+      const gifDiv = document.createElement("div");
+      gifDiv.setAttribute("id", "gifDiv");
+      article.append(gifDiv);
+      const giphy = document.createElement("img");
+      const url = `https://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
+      fetch(url)
+        .then((r) => r.json())
+        .then((data) => {
+          //grabbing gif image
+          giphy.src = data.data[0].images.original.url;
+          //making gif image append to div
+          gifDiv.append(giphy);
+        })
+        .catch(function () {
+          console.log("No GIF entry");
+        });
+      //reaction bar//
+      const reactionBar = document.createElement("div");
+      reactionBar.setAttribute("id", `reactionBar${post.id}`);
+      article.append(reactionBar);
+
+      //like//
+      const like = document.createElement("button");
+      like.setAttribute("id", `like${post.id}`);
+      like.setAttribute("class", "fas fa-thumbs-up like");
+      like.textContent = ` ${post.reaction.like}`;
+      reactionBar.append(like);
+      reactionCount(like, post.reaction.like, post.id, "like");
+
+      //clap//
+      const clap = document.createElement("button");
+      clap.setAttribute("id", `clap${post.id}`);
+      clap.setAttribute("class", "fas fa-sign-language clap");
+      clap.textContent = ` ${post.reaction.clap}`;
+
+      clap.addEventListener("mouseover", function (event) {
+        event.target.style.backgroundolor = "rgb(235,219,195)";
       });
-    //reaction bar//
-    const reactionBar = document.createElement("div");
-    reactionBar.setAttribute("id", `reactionBar${post.id}`);
-    article.append(reactionBar);
 
-    //like//
-    const like = document.createElement("button");
-    like.setAttribute("id", `like${post.id}`);
-    like.setAttribute("class", "fas fa-thumbs-up like");
-    like.textContent = ` ${post.reaction.like}`;
-    reactionBar.append(like);
-    reactionCount(like, post.reaction.like, post.id, "like");
+      reactionBar.append(clap);
+      reactionCount(clap, post.reaction.clap, post.id, "clap");
 
-    //clap//
-    const clap = document.createElement("button");
-    clap.setAttribute("id", `clap${post.id}`);
-    clap.setAttribute("class", "fas fa-sign-language clap");
-    clap.textContent = ` ${post.reaction.clap}`;
+      //love//
+      const love = document.createElement("button");
+      love.setAttribute("id", `love${post.id}`);
+      love.textContent = ` ${post.reaction.love}`;
+      love.setAttribute("class", "fas fa-heart heart");
 
-    clap.addEventListener("mouseover", function (event) {
-      event.target.style.backgroundolor = "rgb(235,219,195)";
-    });
+      reactionBar.append(love);
+      reactionCount(love, post.reaction.love, post.id, "love");
 
-    reactionBar.append(clap);
-    reactionCount(clap, post.reaction.clap, post.id, "clap");
+      //comments Area//
+      const commentsArea = document.createElement("div");
+      commentsArea.setAttribute("class", `commentsArea`);
+      article.append(commentsArea);
 
-    //love//
-    const love = document.createElement("button");
-    love.setAttribute("id", `love${post.id}`);
-    love.textContent = ` ${post.reaction.love}`;
-    love.setAttribute("class", "fas fa-heart heart");
+      //published comments
+      const publishedComments = document.createElement("div");
+      publishedComments.setAttribute("id", `publishedComments${post.id}`);
+      commentsArea.append(publishedComments);
 
-    reactionBar.append(love);
-    reactionCount(love, post.reaction.love, post.id, "love");
+      const commentHeader = document.createElement("h3");
+      commentHeader.setAttribute("id", "commentHeader");
+      commentHeader.textContent = "Comments";
+      publishedComments.append(commentHeader);
 
-    //comments Area//
-    const commentsArea = document.createElement("div");
-    commentsArea.setAttribute("class", `commentsArea`);
-    article.append(commentsArea);
+      //print each comment
+      for (const comment of post.comments) {
+        const commentP = document.createElement("p");
+        commentP.textContent = comment;
+        publishedComments.append(commentP);
+      }
 
-    //published comments
-    const publishedComments = document.createElement("div");
-    publishedComments.setAttribute("id", `publishedComments${post.id}`);
-    commentsArea.append(publishedComments);
+      //create form to add comments
+      const commentForm = document.createElement("form");
+      commentForm.setAttribute("id", `commentForm${post.id}`);
+      commentsArea.append(commentForm);
 
-    const commentHeader = document.createElement("h3");
-    commentHeader.setAttribute("id", "commentHeader");
-    commentHeader.textContent = "Comments";
-    publishedComments.append(commentHeader);
+      //Text area input label
+      const commentLabel = document.createElement("label");
+      commentLabel.setAttribute("id", `commentLabel${post.id}`);
+      commentLabel.setAttribute("for", `commentInput${post.id}`);
+      commentForm.append(commentLabel);
 
-    //print each comment
-    for (const comment of post.comments) {
-      const commentP = document.createElement("p");
-      commentP.textContent = comment;
-      publishedComments.append(commentP);
+      //Text area input
+      const commentInput = document.createElement("textarea");
+      commentInput.setAttribute("id", `commentInput${post.id}`);
+      commentInput.setAttribute("name", `commentInput${post.id}`);
+      commentInput.setAttribute("placeholder", " Write your comment here...");
+      commentInput.setAttribute("required", "required");
+      commentForm.append(commentInput);
+
+      const br = document.createElement("br");
+      commentForm.append(br);
+
+      const submitComment = document.createElement("input");
+      submitComment.setAttribute("id", `submitComment${post.id}`);
+      submitComment.setAttribute("type", "submit");
+      submitComment.setAttribute("value", "Submit Comment");
+      commentForm.append(submitComment);
+
+      newComment(commentForm, post.id, `commentInput${post.id}`);
     }
-
-    //create form to add comments
-    const commentForm = document.createElement("form");
-    commentForm.setAttribute("id", `commentForm${post.id}`);
-    commentsArea.append(commentForm);
-
-    //Text area input label
-    const commentLabel = document.createElement("label");
-    commentLabel.setAttribute("id", `commentLabel${post.id}`);
-    commentLabel.setAttribute("for", `commentInput${post.id}`);
-    commentForm.append(commentLabel);
-
-    //Text area input
-    const commentInput = document.createElement("textarea");
-    commentInput.setAttribute("id", `commentInput${post.id}`);
-    commentInput.setAttribute("name", `commentInput${post.id}`);
-    commentInput.setAttribute("placeholder", " Write your comment here...");
-    commentInput.setAttribute("required", "required");
-    commentForm.append(commentInput);
-
-    const br = document.createElement("br");
-    commentForm.append(br);
-
-    const submitComment = document.createElement("input");
-    submitComment.setAttribute("id", `submitComment${post.id}`);
-    submitComment.setAttribute("type", "submit");
-    submitComment.setAttribute("value", "Submit Comment");
-    commentForm.append(submitComment);
-
-    newComment(commentForm, post.id, `commentInput${post.id}`);
   }
 }
 

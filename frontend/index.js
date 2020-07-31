@@ -20,89 +20,100 @@ searchBar.addEventListener("submit", (event) => {
   }
   fetch(`https://majc-blogs.herokuapp.com/posts/search/home?q=${newSearchTerm}`)
     .then((r) => r.json())
-    .then((data) => displayPosts(data));
+    .then((data) => displayPosts(data, searchTerm));
 });
 
 fetch("https://majc-blogs.herokuapp.com/posts")
   .then((r) => r.json())
   .then((data) => displayPosts(data));
 
-function displayPosts(posts) {
-  for (post of posts) {
-    //article//
+function displayPosts(posts, searchTerm) {
+  if (posts.length === 0) {
     const article = document.createElement(`article`);
-    article.setAttribute("id", `post${post.id}`);
+    article.setAttribute("id", `post`);
     document.getElementById("postSection").append(article);
     //title//
     const title = document.createElement(`h2`);
-    title.setAttribute("id", `title${post.id}`);
-    title.textContent = post.title;
+    title.setAttribute("id", `title`);
+    title.textContent = `"${searchTerm}" returned no results`;
     article.append(title);
-    //description//
-    const description = document.createElement(`p`);
-    description.setAttribute("id", `description${post.id}`);
-    description.textContent = post.description;
-    article.append(description);
+  } else {
+    for (post of posts) {
+      //article//
+      const article = document.createElement(`article`);
+      article.setAttribute("id", `post${post.id}`);
+      document.getElementById("postSection").append(article);
+      //title//
+      const title = document.createElement(`h2`);
+      title.setAttribute("id", `title${post.id}`);
+      title.textContent = post.title;
+      article.append(title);
+      //description//
+      const description = document.createElement(`p`);
+      description.setAttribute("id", `description${post.id}`);
+      description.textContent = post.description;
+      article.append(description);
 
-    //gif//
-    //Create div element for gif and append to article
-    const gifDiv = document.createElement("div");
-    gifDiv.setAttribute("id", "gifDiv");
-    article.append(gifDiv);
-    const giphy = document.createElement("img");
+      //gif//
+      //Create div element for gif and append to article
+      const gifDiv = document.createElement("div");
+      gifDiv.setAttribute("id", "gifDiv");
+      article.append(gifDiv);
+      const giphy = document.createElement("img");
 
-    const url = `https://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
-        //grabbing gif image
-        giphy.src = data.data[0].images.original.url;
-        //making gif image append to div
-        gifDiv.append(giphy);
-      })
-      .catch(function () {
-        console.log("No GIF entry");
-      });
+      const url = `https://api.giphy.com/v1/gifs/search?q=${post.gif}&api_key=JRAJgNDb1SCjVI5M9EcLC24CFEBZt6ys&offset=${post.id}&rating=g&limit=1`;
+      fetch(url)
+        .then((r) => r.json())
+        .then((data) => {
+          //grabbing gif image
+          giphy.src = data.data[0].images.original.url;
+          //making gif image append to div
+          gifDiv.append(giphy);
+        })
+        .catch(function () {
+          console.log("No GIF entry");
+        });
 
-    //reaction bar//
-    const reactionBar = document.createElement("div");
-    reactionBar.setAttribute("id", `reactionBar${post.id}`);
-    article.append(reactionBar);
-    //like//
-    const like = document.createElement("i");
-    like.setAttribute("id", `like${post.id}`);
-    like.setAttribute("class", "fas fa-thumbs-up");
-    like.textContent = ` ${post.reaction.like}`;
-    reactionBar.append(like);
+      //reaction bar//
+      const reactionBar = document.createElement("div");
+      reactionBar.setAttribute("id", `reactionBar${post.id}`);
+      article.append(reactionBar);
+      //like//
+      const like = document.createElement("i");
+      like.setAttribute("id", `like${post.id}`);
+      like.setAttribute("class", "fas fa-thumbs-up");
+      like.textContent = ` ${post.reaction.like}`;
+      reactionBar.append(like);
 
-    //clap//
-    const clap = document.createElement("i");
-    clap.setAttribute("id", `clap${post.id}`);
-    clap.setAttribute("class", "fas fa-sign-language");
-    clap.textContent = ` ${post.reaction.clap}`;
-    reactionBar.append(clap);
+      //clap//
+      const clap = document.createElement("i");
+      clap.setAttribute("id", `clap${post.id}`);
+      clap.setAttribute("class", "fas fa-sign-language");
+      clap.textContent = ` ${post.reaction.clap}`;
+      reactionBar.append(clap);
 
-    //love//
-    const love = document.createElement("i");
-    love.setAttribute("id", `love${post.id}`);
-    love.textContent = ` ${post.reaction.love}`;
-    love.setAttribute("class", "fas fa-heart");
-    reactionBar.append(love);
+      //love//
+      const love = document.createElement("i");
+      love.setAttribute("id", `love${post.id}`);
+      love.textContent = ` ${post.reaction.love}`;
+      love.setAttribute("class", "fas fa-heart");
+      reactionBar.append(love);
 
-    const br = document.createElement("br");
-    reactionBar.append(br);
+      const br = document.createElement("br");
+      reactionBar.append(br);
 
-    //post Link//
-    const postLink = document.createElement("a");
-    postLink.setAttribute("id", `postLink${post.id}`);
-    postLink.setAttribute("href", `/frontend/singlepost.html`);
-    reactionBar.append(postLink);
-    //button in "post Link" to Go to Post//
-    const buttonPostLink = document.createElement("button");
-    buttonPostLink.setAttribute("id", "buttonPostLink");
-    buttonPostLink.textContent = "Go to Post";
-    postLink.append(buttonPostLink);
-    postId(buttonPostLink, post.id);
+      //post Link//
+      const postLink = document.createElement("a");
+      postLink.setAttribute("id", `postLink${post.id}`);
+      postLink.setAttribute("href", `/frontend/singlepost.html`);
+      reactionBar.append(postLink);
+      //button in "post Link" to Go to Post//
+      const buttonPostLink = document.createElement("button");
+      buttonPostLink.setAttribute("id", "buttonPostLink");
+      buttonPostLink.textContent = "Go to Post";
+      postLink.append(buttonPostLink);
+      postId(buttonPostLink, post.id);
+    }
   }
 }
 
