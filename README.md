@@ -10,7 +10,7 @@ Users can filter posts by title and description when on the Home page, and by ti
 
 ### Run Deployed Version
 
-Open [this link](https://majc-blogs.netlify.app/) and wait for 30 seconds if no content appears
+Open [this link](https://majc-blogs.netlify.app/), if no content appears wait for 30 seconds and refresh the page
 
 ### Run Local Version
 
