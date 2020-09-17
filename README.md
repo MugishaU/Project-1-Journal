@@ -8,11 +8,11 @@ Users can filter posts by title and description when on the Home page, and by ti
 
 ## Instructions
 
-### Running Deployed Version
+### Run Deployed Version
 
-Open https://majc-blogs.netlify.app/ and wait for 30 seconds if no content appears
+Open [this link](https://majc-blogs.netlify.app/), if no content appears wait for 30 seconds and refresh the page
 
-### Pull Code to Run Locally
+### Run Local Version
 
 1. Pull code from Master Branch
 2. run 'npm install'
@@ -30,7 +30,7 @@ Open https://majc-blogs.netlify.app/ and wait for 30 seconds if no content appea
 
 ## Contributors
 
-Jamie Sear (@JamieSear), Cindy Feng (@cindywfeng), Mugisha Uwiragiye (@MugishaU) & Alex Peirson (@AKP-13)
+Jamie Sear ([@JamieSear](https://github.com/JamieSear)), Cindy Feng ([@cindywfeng](https://github.com/cindywfeng)), Mugisha Uwiragiye ([@MugishaU](https://github.com/MugishaU)) & Alex Peirson ([@AKP-13](https://github.com/AKP-13))
 
 ## Daily Standup
 
