@@ -3,26 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>All Posts</title>
-        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="frontend/styles/styles.css"
+        />
         <script
             src="https://kit.fontawesome.com/b99e3d5816.js"
             crossorigin="anonymous"
         ></script>
         <!--Fontawesome CDN-->
-        <script defer src="posts.js"></script>
+        <script defer src="/frontend/index.js"></script>
+        <title>Project Journal</title>
     </head>
     <body>
         <header>
             <nav>
                 <ul>
                     <li>
-                        <a href="../index.html"
+                        <a href="/index.html"
                             >Home<i class="fas fa-home"></i
                         ></a>
                     </li>
                     <li>
-                        <a href="./create.html"
+                        <a href="/frontend/create.html"
                             >Create Post
                             <i
                                 class="fa fa-pencil-square-o"
@@ -31,7 +35,7 @@
                         ></a>
                     </li>
                     <li>
-                        <a href="./posts.html"
+                        <a href="/frontend/posts.html"
                             >All Posts <i class="fas fa-book"></i
                         ></a>
                     </li>
@@ -55,7 +59,11 @@
             </nav>
         </header>
         <main id="main">
-            <h1 class="topTitles">All Posts</h1>
+            <h1 class="topTitles">Home</h1>
+            <section id="postSection">
+                <!--To the top button-->
+                <!--End of top button-->
+            </section>
             <button id="buttonToTop">
                 <i
                     class="fa fa-chevron-up"
@@ -63,10 +71,6 @@
                     style="font-size: 25px"
                 ></i>
             </button>
-            <section id="postSection">
-                <!--To the top button-->
-                <!--End of top button-->
-            </section>
         </main>
     </body>
 </html>

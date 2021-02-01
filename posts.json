@@ -2,19 +2,45 @@
   {
     "id": 0,
     "title": "Initial Commit",
-    "description": "Our first post to test deployment to Heroku",
-    "content": "This is our first post, the hope is that you've opened this in your browser. The further hope is that this entire website is being hosted by Heroku and had continous integration with thanks to a Github connection. Well, here's hoping, see you on the other side!",
-    "gif": "github",
-    "reaction": { "like": 0, "clap": 0, "love": 1 },
-    "comments": ["Hey hope this works!!! Wrote this comment before deployment"]
+    "description": "Welcome to MAJC-Blogs!",
+    "content": "Hi from Alex, Cindy, Jamie and Mugisha! This is our first post, and welcome to our site! We hope you enjoy yourselves, happy posting!",
+    "gif": "party parrot",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": ["Try adding your own comment! Or maybe give this post a like?"]
   },
+
   {
     "id": 1,
-    "title": "Michael Jordan",
-    "description": "A random post, for testing ",
-    "content": "This post is about Michael Jordan, plan on using it to check the search bar still works after deployment, but it should... right?",
-    "gif": "Michael Jordan",
-    "reaction": { "like": 0, "clap": 1, "love": 0 },
-    "comments": ["The GOAT- before deployment"]
+    "title": "Man's Best Friend",
+    "description": "Here's a bloggy about a doggy",
+    "content": "Imagine being a pitbull, imagine how tiring it would be to run",
+    "gif": "dog",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a dog)! Or maybe give this post a like?"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Cats > Everything",
+    "description": "Cats are better than Dogs",
+    "content": "Cats always land on their feet",
+    "gif": "cat",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a cat)! Or maybe give this post a like?"
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "The King of the Jungle",
+    "description": "Bigs Cats",
+    "content": "Lions and cats and stuff",
+    "gif": "Lion",
+    "reaction": { "like": 0, "clap": 0, "love": 0 },
+    "comments": [
+      "Try adding your own comment (about a BIG cat)! Or maybe give this post a like?"
+    ]
   }
 ]
