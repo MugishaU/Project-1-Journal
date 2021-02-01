@@ -111,6 +111,7 @@ article > p {
 img {
     max-width: 300px;
     margin: auto;
+    border-radius: 10px;
 }
 
 #buttonPostLink {
@@ -278,17 +279,17 @@ button {
 
 .like:hover,
 .like:disabled {
-    color: blue;
+    color: #339dce;
 }
 
 .clap:hover,
 .clap:disabled {
-    color: green;
+    color: #26d072;
 }
 
 .heart:hover,
 .heart:disabled {
-    color: red;
+    color: #e35f53;
 }
 
 button:hover {
@@ -432,15 +433,6 @@ nav ul li a:hover {
         margin-top: 150px;
     }
 
-    #searchBtn {
-        margin-top: 10px;
-        border-radius: 8px;
-    }
-
-    #search {
-        border-radius: 8px;
-    }
-
     nav ul li {
         padding-left: 10px;
         padding-right: 10px;
@@ -450,6 +442,11 @@ nav ul li a:hover {
 @media only screen and (max-width: 407px) {
     .topPadding {
         padding-top: 120px;
+    }
+
+    #searchBtn,
+    #search {
+        border-radius: 30px;
     }
 }
 
