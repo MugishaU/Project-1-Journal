@@ -85,6 +85,7 @@ h2 {
     font-size: 45px;
     text-align: left;
     color: rgb(66, 62, 62);
+    border-radius: inherit;
 }
 
 p {
@@ -101,6 +102,10 @@ p {
 
     padding: 20px;
     margin-bottom: 10px;
+}
+
+article > p {
+    border-radius: inherit;
 }
 
 img {
@@ -374,6 +379,8 @@ nav {
 nav ul {
     list-style-type: none;
     display: inline-block;
+    padding-left: 0px;
+    text-align: center;
 }
 
 nav ul li {
@@ -437,6 +444,12 @@ nav ul li a:hover {
     nav ul li {
         padding-left: 10px;
         padding-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 407px) {
+    .topPadding {
+        padding-top: 120px;
     }
 }
 
