@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles/styles.css" rel="stylesheet" />
-    <script
-      src="https://kit.fontawesome.com/b99e3d5816.js"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="singlepost.js"></script>
-    <title id="headTitle"></title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="../index.html">Home<i class="fas fa-home"></i></a>
-          </li>
-          <li>
-            <a href="./create.html"
-              >Create Post
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i
-            ></a>
-          </li>
-          <li>
-            <a href="./posts.html"
-              >All Posts <i class="fas fa-book-reader"></i
-            ></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <section>
-      <article id="post">
-        <h2 id="title"></h2>
-        <p id="main"></p>
-        <div id="gifDiv">
-          <img id="giphy" />
-        </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles/styles.css" rel="stylesheet" />
+        <script
+            src="https://kit.fontawesome.com/b99e3d5816.js"
+            crossorigin="anonymous"
+        ></script>
+        <script defer src="singlepost.js"></script>
+        <title id="headTitle"></title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html"
+                            >Home<i class="fas fa-home"></i
+                        ></a>
+                    </li>
+                    <li>
+                        <a href="./create.html"
+                            >Create Post
+                            <i
+                                class="fa fa-pencil-square-o"
+                                aria-hidden="true"
+                            ></i
+                        ></a>
+                    </li>
+                    <li>
+                        <a href="./posts.html"
+                            >All Posts <i class="fas fa-book-reader"></i
+                        ></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <article id="post">
+                <h2 id="title"></h2>
+                <p id="main"></p>
+                <div id="gifDiv">
+                    <img id="giphy" />
+                </div>
 
-        <div id="reactionBar">
-          <button id="like" class="fas fa-thumbs-up like"></button>
-          <button id="clap" class="fas fa-sign-language clap"></button>
-          <button id="love" class="fas fa-heart heart"></button>
-        </div>
+                <div id="reactionBar">
+                    <button id="like" class="fas fa-thumbs-up like"></button>
+                    <button
+                        id="clap"
+                        class="fas fa-sign-language clap"
+                    ></button>
+                    <button id="love" class="fas fa-heart heart"></button>
+                </div>
 
-        <div class="commentsArea">
-          <h3 id="commentHeader">Comments</h3>
-          <div id="publishedComments"></div>
-          <form id="commentForm">
-            <label id="commentLabel" for="commentInput"></label>
-            <textarea id="commentInput" name="commentInput" required></textarea>
-            <input id="submitComment" type="submit" value="Submit Comment" />
-          </form>
-        </div>
-      </article>
-    </section>
-  </body>
+                <div class="commentsArea">
+                    <h3 id="commentHeader">Comments</h3>
+                    <div id="publishedComments"></div>
+                    <form id="commentForm">
+                        <label id="commentLabel" for="commentInput"></label>
+                        <textarea
+                            id="commentInput"
+                            name="commentInput"
+                            required
+                        ></textarea>
+                        <input
+                            id="submitComment"
+                            type="submit"
+                            value="Submit Comment"
+                        />
+                    </form>
+                </div>
+            </article>
+        </section>
+    </body>
 </html>
